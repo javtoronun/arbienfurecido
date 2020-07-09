@@ -9,6 +9,7 @@ import { auth } from 'firebase/app';
 
 import { Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,9 @@ export class LoginPage implements OnInit {
     public afAuth: AngularFireAuth,
     public toastCtrl: ToastController,
     public navCtrl: NavController,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
     // Disable side menu
@@ -50,7 +53,8 @@ export class LoginPage implements OnInit {
         cpassword: ''
       }
       const res = await this.authService.login(credentials);
-      // Redirect 
+      await this.userService.getUser(res.user.uid);
+      // Redirect
       this.navCtrl.navigateForward('/profile');
     }catch(error){
       if(error.code === 'auth/invalid-email') {
