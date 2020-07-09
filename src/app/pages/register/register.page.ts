@@ -5,6 +5,8 @@ import { MenuController, ToastController, NavController } from '@ionic/angular';
 
 import { Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/shared/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -14,15 +16,18 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterPage implements OnInit {
 
   registerForm = new FormGroup({
+    username: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     cpassword: new FormControl('', Validators.required),
   });
 
-  constructor(public menuCtrl: MenuController, 
+  constructor(public menuCtrl: MenuController,
     public toastCtrl: ToastController,
     public navCtrl: NavController,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
     // Disable side menu
@@ -37,18 +42,26 @@ export class RegisterPage implements OnInit {
     toast.present();
   }
 
-  async signIn() {
+  async signUp() {
     try{
+
       let credentials:Credentials = {
         email: this.registerForm.get('email').value,
         password: this.registerForm.get('password').value,
         cpassword: this.registerForm.get('cpassword').value
       }
+      let user: User = {
+        email: credentials.email,
+        admin: false,
+        username: this.registerForm.get("username").value
+      }
+
       if(credentials.password !== credentials.cpassword) {
         this.presentToast('Las contraseñas no coinciden');
       } else {
         // Save it
-        const res = await this.authService.signIn(credentials);
+        const res = await this.authService.signUp(credentials);
+        await this.userService.createUser(res.user.uid, user);
         this.navCtrl.navigateForward('/login'); // Redirect
         console.log(res);
       }

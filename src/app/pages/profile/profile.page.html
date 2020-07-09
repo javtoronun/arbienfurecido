@@ -1,9 +1,9 @@
-<ion-header>
+<ion-header *ngIf="user">
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-title>Bienvenido, {{ user.username }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="user">
   <ion-item>Bienvenido a la app</ion-item>
 </ion-content>
