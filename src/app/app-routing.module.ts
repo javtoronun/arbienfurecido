@@ -5,7 +5,7 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'register',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -24,10 +24,7 @@ const routes: Routes = [
     path: 'admin-dashboard',
     loadChildren: () => import('./pages/admin-dashboard/admin-dashboard.module').then( m => m.AdminDashboardPageModule),
     canActivate: [AuthGuard]
-  },
-  { path: '**', 
-  redirectTo: '/login', 
-  pathMatch: 'full' },
+  }
 ];
 
 @NgModule({

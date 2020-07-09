@@ -18,9 +18,8 @@
             <ion-input type="password" formControlName="password" placeholder="Clave"></ion-input>
           </ion-item>
 
-      Value: {{loginForm.value}}
-      IsValid: {{loginForm.valid}}
-      <ion-button type="submit"[disabled]="!loginForm.valid" fill="solid" expand="block" color="dark" >Entrar</ion-button>
+
+      <ion-button type="submit" [disabled]="!loginForm.valid" fill="solid" expand="block" color="dark" >Entrar</ion-button>
 
     </form>
   </ion-list>
