@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/shared/models/user';
+import { Storage } from "@ionic/storage";
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,11 +14,22 @@ export class ProfilePage implements OnInit {
   user: User;
 
   constructor(
-    private userService: UserService
+    private authService: AuthService,
+    private userService: UserService,
+    private storage: Storage
   ) { }
 
-  ngOnInit() {
-    this.userService.user.subscribe(user => {this.user = user; console.log(this.user) });
+  async ngOnInit() {
+    try {
+
+      await this.userService.getUser(await this.storage.get("userID"));
+
+      this.userService.user.subscribe(user => {this.user = user; console.log(this.user) });
+
+    } catch(err) {
+      console.log(err)
+    }
+
 
   }
 

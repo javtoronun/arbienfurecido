@@ -53,7 +53,6 @@ export class LoginPage implements OnInit {
         cpassword: ''
       }
       const res = await this.authService.login(credentials);
-      await this.userService.getUser(res.user.uid);
       // Redirect
       this.navCtrl.navigateForward('/profile');
     }catch(error){

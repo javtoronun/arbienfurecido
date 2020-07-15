@@ -10,7 +10,7 @@ export class UserService {
 
   private usersCollection: AngularFirestoreCollection<User>;
   users: Observable<User[]>;
-  user: Observable<User>;
+  user: Observable<User> = new Observable<User>();
 
 
   constructor(
