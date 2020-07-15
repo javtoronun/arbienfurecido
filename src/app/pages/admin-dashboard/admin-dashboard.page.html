@@ -1,9 +1,54 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>admin-dashboard</ion-title>
+    <ion-title>Panel de administrador</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-card *ngIf="questionsSections">
+    <ion-card-header>
+      <ion-card-title>Nueva pregunta</ion-card-title>
+      <ion-card-subtitle>Introduce los datos de la pregunta que quieres añadir</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <form [formGroup]="questionForm" (ngSubmit)="addQuestion()">
+        <ion-item>
+          <ion-label position="floating">Sección</ion-label>
+          <ion-select autofocus formControlName="section" placeholder="Regla N">
+            <ion-select-option *ngFor="let questionsSection of questionsSections; let i=index" [value]="i">{{ questionsSection.section }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Enunciado</ion-label>
+          <ion-input formControlName="question" placeholder="¿Con qué se juega al fútbol?"></ion-input>
+        </ion-item>
+
+        <ion-item formArrayName="answers">
+          <ion-label position="floating">Respuestas posibles</ion-label>
+          <ion-input formControlName="0" placeholder="Con las manos"></ion-input>
+          <ion-input formControlName="1" placeholder="Con el pene"></ion-input>
+          <ion-input formControlName="2" placeholder="Con las muñecas"></ion-input>
+          <ion-input formControlName="3" placeholder="Con los pies"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Respuesta correcta</ion-label>
+          <ion-select autofocus formControlName="correctAnswer" placeholder="Respuesta N">
+            <ion-select-option value="0">Respuesta 1</ion-select-option>
+            <ion-select-option value="1">Respuesta 2</ion-select-option>
+            <ion-select-option value="2">Respuesta 3</ion-select-option>
+            <ion-select-option value="3">Respuesta 4</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-button id="login-btn" type="submit" [disabled]="!questionForm.valid" fill="solid" expand="block" color="dark" >Añadir pregunta</ion-button>
+      </form>
+
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
