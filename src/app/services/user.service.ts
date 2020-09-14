@@ -25,6 +25,7 @@ export class UserService {
   }
 
   async getUser(userID: string) {
+    console.log(userID)
     this.user = this.usersCollection.doc<User>(userID).valueChanges();
   }
 }
