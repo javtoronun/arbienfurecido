@@ -1,27 +1,33 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Inicio de sesión</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-list style="display: flex; justify-content: center;">
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
 
-          <ion-item>
-            <ion-label position="floating">Correo electrónico</ion-label>
-            <ion-input autofocus formControlName="email" placeholder="Correo electrónico"></ion-input>
-          </ion-item>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Iniciar sesión</ion-card-title>
+      <ion-card-subtitle>Introduce tus credenciales</ion-card-subtitle>
+    </ion-card-header>
 
-          <ion-item>
-            <ion-label position="floating">Clave</ion-label>
-            <ion-input type="password" formControlName="password" placeholder="Clave"></ion-input>
-          </ion-item>
+    <ion-card-content class="content-centered column">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
 
-      Value: {{loginForm.value}}
-      IsValid: {{loginForm.valid}}
-      <ion-button type="submit"[disabled]="!loginForm.valid" fill="solid" expand="block" color="dark" >Entrar</ion-button>
+        <ion-item>
+          <ion-label position="floating">Correo electrónico</ion-label>
+          <ion-input autofocus formControlName="email" inputmode="email" type="email" placeholder="Correo electrónico"></ion-input>
+        </ion-item>
 
-    </form>
-  </ion-list>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" formControlName="password" placeholder="Clave"></ion-input>
+        </ion-item>
+
+
+        <ion-button id="login-btn" type="submit" [disabled]="!loginForm.valid" fill="solid" expand="block" color="dark" >Entrar</ion-button>
+
+      </form>
+
+      <ion-item id="register-link" href="/register" lines="none">
+          Crear una cuenta nueva
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

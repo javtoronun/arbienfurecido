@@ -1,9 +1,13 @@
-<ion-header>
+<ion-header *ngIf="user">
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-title>Bienvenido, {{ user.username }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-item>Bienvenido a la app</ion-item>
+<ion-content *ngIf="user">
+  <ion-button *ngIf="user.admin" href="/admin-dashboard" expand="block" fill="solid" color="dark">Ir al panel de administrador</ion-button>
+  <ion-button href="/tests" expand="block" fill="solid" color="dark">Reglas de juego</ion-button>
+  <ion-button href="/exams" expand="block" fill="solid" color="dark">Examen</ion-button>
+  <ion-button href="/temary" expand="block" fill="solid" color="dark">Teoría</ion-button>
+  <ion-button href="/progress" expand="block" fill="solid" color="dark">Progreso</ion-button>
 </ion-content>
