@@ -7,7 +7,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let questionsUnit of questions" class="ion-activatable ripple-parent" (click)="goToTest(questionUnit)">
+    <ion-item *ngFor="let questionsUnit of questions" class="ion-activatable ripple-parent" (click)="goToTest(questionsUnit)">
       <ion-label>{{ questionsUnit.section }}</ion-label>
       <ion-ripple-effect type="unbounded"></ion-ripple-effect>
     </ion-item>

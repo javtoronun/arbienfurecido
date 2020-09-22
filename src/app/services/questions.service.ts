@@ -12,8 +12,8 @@ export class QuestionsService {
 
   private questionsCollection: AngularFirestoreCollection<QuestionsSection>;
   questionsSections: Observable<QuestionsSection[]>;
-  testQuestionsSource: BehaviorSubject<Question> = new BehaviorSubject(null)
-  testQuestions$: Observable<Question> = this.testQuestionsSource.asObservable();
+  testQuestionsSource: BehaviorSubject<QuestionsSection> = new BehaviorSubject(null)
+  testQuestions$: Observable<QuestionsSection> = this.testQuestionsSource.asObservable();
 
   constructor(
     private afFirestore: AngularFirestore
@@ -34,7 +34,7 @@ export class QuestionsService {
     return this.questionsCollection.get();
   }
 
-  changeTestQuestions(questionsUnit: Question) {
+  changeTestQuestions(questionsUnit: QuestionsSection) {
     this.testQuestionsSource.next(questionsUnit);
   }
 
