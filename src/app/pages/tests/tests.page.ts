@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { QuestionsService } from 'src/app/services/questions.service';
 import { Question } from 'src/app/shared/models/question';
+import { QuestionsSection } from 'src/app/shared/models/questions-section';
 
 @Component({
   selector: 'app-tests',
@@ -10,7 +11,7 @@ import { Question } from 'src/app/shared/models/question';
 })
 export class TestsPage implements OnInit {
 
-  questions: Question[] = [];
+  questions: QuestionsSection[] = [];
 
   constructor(
     private questionsService: QuestionsService,
@@ -20,14 +21,14 @@ export class TestsPage implements OnInit {
   ngOnInit() {
     this.questionsService.getQuestions().subscribe(async res => {
       res.docs.forEach(questionDoc => {
-        this.questions.push(<Question> questionDoc.data());
+        this.questions.push(<QuestionsSection> questionDoc.data());
       });
 
     })
   }
 
-  goToTest(questionUnit: Question) {
-    this.questionsService.changeTestQuestions(questionUnit);
+  goToTest(questionsUnit: QuestionsSection) {
+    this.questionsService.changeTestQuestions(questionsUnit);
     this.router.navigate(["/test"]);
   }
 
