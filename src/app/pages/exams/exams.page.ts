@@ -31,7 +31,7 @@ export class ExamsPage implements OnInit {
     })
   }
 
-  goToTest(questionsUnit: QuestionsSection) {
+  goToTest(questionsUnit?: QuestionsSection) {
     this.exam.randQuestions = [];
     this.exam.questionsSections.forEach(questionsSection => {
       let questions = [];
