@@ -31,7 +31,7 @@ export class AuthService {
    */
   async login(credentials: Credentials) {
     const res = await this.afAuth.signInWithEmailAndPassword(credentials.email, credentials.password);
-    this.storage.set("userID", res.user.uid);
+    await this.storage.set("userID", res.user.uid);
 
     return res;
   }
