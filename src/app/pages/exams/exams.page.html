@@ -6,4 +6,33 @@
 
 <ion-content>
 
+  <ion-card *ngIf="questionsSections">
+    <ion-card-header>
+      <ion-card-title>Opciones del examen</ion-card-title>
+      <ion-card-subtitle>Indica las reglas y número de preguntas del examen</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <form (ngSubmit)="goToTest()">
+
+        <ion-item>
+          <ion-label position="floating">Reglas de juego</ion-label>
+          <ion-select multiple="true" cancelText="Cerrar" okText="Listo"
+            [(ngModel)]="exam.questionsSections" name="questionsSections" required>
+            <ion-select-option *ngFor="let questionsSection of questionsSections" [value]="questionsSection">{{ questionsSection.section }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Número de preguntas</ion-label>
+          <ion-input [(value)]="exam.numQuestions" required></ion-input>
+        </ion-item>
+
+        <ion-button id="login-btn" type="submit" [disabled]="exam.questionsSections.length == 0" fill="solid" expand="block" color="dark" >Ir a examen</ion-button>
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

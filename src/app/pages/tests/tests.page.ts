@@ -11,7 +11,7 @@ import { QuestionsSection } from 'src/app/shared/models/questions-section';
 })
 export class TestsPage implements OnInit {
 
-  questions: QuestionsSection[] = [];
+  questionsSections: QuestionsSection[] = [];
 
   constructor(
     private questionsService: QuestionsService,
@@ -21,7 +21,7 @@ export class TestsPage implements OnInit {
   ngOnInit() {
     this.questionsService.getQuestions().subscribe(async res => {
       res.docs.forEach(questionDoc => {
-        this.questions.push(<QuestionsSection> questionDoc.data());
+        this.questionsSections.push(<QuestionsSection> questionDoc.data());
       });
 
     })
