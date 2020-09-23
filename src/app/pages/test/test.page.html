@@ -18,7 +18,7 @@
   </div>
 
   <div class="question-details">
-    <item-label>{{ currentIndex + 1 }}. {{ currentQuestion.question }}</item-label>
+    <ion-label>{{ currentIndex + 1 }}. {{ currentQuestion.question }}</ion-label>
 
     <ion-list class="answers">
       <ion-item *ngFor="let answer of currentQuestion.answers ; let i = index"
