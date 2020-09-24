@@ -4,6 +4,7 @@ import { Question } from 'src/app/shared/models/question';
 import { QuestionsSection } from 'src/app/shared/models/questions-section';
 import { Test } from 'src/app/shared/models/test';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-test',
@@ -23,6 +24,7 @@ export class TestPage implements OnInit {
 
 
   constructor(
+    private userService: UserService,
     private questionsService: QuestionsService,
     private router: Router
   ) { }
@@ -89,7 +91,9 @@ export class TestPage implements OnInit {
     return this.test.failedQuestions.find(failedQuestion => failedQuestion.question == question);
   }
 
-  finishTest() {
+  async finishTest() {
+    const res = await this.userService.addFinishedTest(this.test);
+    console.log(res)
     this.router.navigate(["/profile"])
   }
 

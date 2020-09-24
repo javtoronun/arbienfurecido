@@ -10,12 +10,14 @@ export class Test {
   }[];
   answeredQuestions: Question[];
   totalQuestions: number;
+  section: string;
 
   constructor(testQuestions: QuestionsSection) {
     this.correctQuestions = [];
     this.failedQuestions = [];
     this.answeredQuestions = [];
     this.totalQuestions = testQuestions.questions.length;
+    this.section = testQuestions.section;
   }
 
 }
