@@ -1,9 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>progress</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Progreso</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let questionsSection of questionsSections"
+      class="section {{ tests ? getSuccessRateColor(questionsSection.section) : 'red' }}">
+      <ion-label class="section-name">{{ questionsSection.section }}</ion-label>
+      <ion-label class="success-rate" *ngIf="tests">{{ getSectionSuccess(questionsSection.section) }}</ion-label>
+      <ion-label class="success-rate" *ngIf="!tests">0/0</ion-label>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

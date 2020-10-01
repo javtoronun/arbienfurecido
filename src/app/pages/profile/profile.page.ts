@@ -24,7 +24,11 @@ export class ProfilePage implements OnInit {
 
       await this.userService.getUser(await this.storage.get("userID"));
 
-      this.userService.user.subscribe(user => {this.user = user; console.log(this.user) });
+      this.userService.user.subscribe(user => {
+        this.user = user;
+        console.log(this.user)
+        if (this.user) this.userService.changeTests(this.user.finishedTests);
+      });
 
     } catch(err) {
       console.log(err)

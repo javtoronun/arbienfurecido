@@ -53,7 +53,8 @@ export class RegisterPage implements OnInit {
       let user: User = {
         email: credentials.email,
         admin: false,
-        username: this.registerForm.get("username").value
+        username: this.registerForm.get("username").value,
+        finishedTests: []
       }
 
       if(credentials.password !== credentials.cpassword) {

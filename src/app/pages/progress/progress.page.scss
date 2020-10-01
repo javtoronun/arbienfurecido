@@ -1,0 +1,19 @@
+.section {
+  .section-name {
+    max-width: 85%;
+  }
+
+  .success-rate {
+    max-width: 10%;
+  }
+
+  &.red {
+    --ion-item-background: #FF8A80;
+  }
+  &.yellow {
+    --ion-item-background: #FFD740;
+  }
+  &.green {
+    --ion-item-background: #B2FF59;
+  }
+}
