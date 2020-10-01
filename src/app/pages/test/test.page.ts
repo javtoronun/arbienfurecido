@@ -34,6 +34,9 @@ export class TestPage implements OnInit {
       this.testQuestions = testQuestions;
       this.currentQuestion = this.testQuestions.questions[0];
       this.currentIndex = 0;
+      testQuestions.questions.forEach(question => {
+        question.answers = shuffle(question.answers);
+      });
       this.test = new Test(this.testQuestions);
     });
   }
@@ -97,4 +100,21 @@ export class TestPage implements OnInit {
     this.router.navigate(["/profile"])
   }
 
+}
+
+function shuffle(arra1): any[] {
+    var ctr = arra1.length, temp, index;
+
+// While there are elements in the array
+    while (ctr > 0) {
+// Pick a random index
+        index = Math.floor(Math.random() * ctr);
+// Decrease ctr by 1
+        ctr--;
+// And swap the last element with it
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
+    }
+    return arra1;
 }
