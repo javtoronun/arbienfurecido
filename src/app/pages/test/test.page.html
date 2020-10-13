@@ -1,15 +1,20 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="profile"></ion-back-button>
     </ion-buttons>
     <ion-title *ngIf="testQuestions">{{ testQuestions.section }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="showQuestions = !showQuestions">
+        <ion-icon name="grid"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="testQuestions">
 
-  <div class="questions">
+  <div *ngIf="showQuestions" class="questions">
     <div *ngFor="let question of testQuestions.questions ; let i=index"
       class="question-box"
       [ngClass]="{ 'current-question': question == currentQuestion,
@@ -21,21 +26,17 @@
   </div>
 
   <div class="question-details">
-    <ion-label>{{ currentIndex + 1 }}. {{ currentQuestion.question }}</ion-label>
+    <ion-card class="question-title">
+        <ion-label>
+          {{ currentIndex + 1 }}. {{ currentQuestion.question }}
+        </ion-label>
+    </ion-card>
 
     <ion-list class="answers">
-      <ion-item *ngFor="let answer of currentQuestion.answers ; let i = index"
-        (click)="onAnswerSelected(i)">
-        <div *ngIf="i == currentQuestion.correctAnswer && showCorrect"
-          class="correct-answer">
-          <ion-icon name="checkmark-outline"></ion-icon>
-        </div>
-        <div *ngIf="i == selectedAnswer && showError"
-          class="wrong-answer">
-          <ion-icon name="close-outline"></ion-icon>
-        </div>
-        <ion-label>{{ answer }}</ion-label>
-      </ion-item>
+      <ion-card *ngFor="let answer of currentQuestion.answers ; let i = index"
+        (click)="onAnswerSelected(i)" class="{{ i == currentQuestion.correctAnswer && showCorrect ? 'correct-answer' : (i == selectedAnswer && showError ? 'wrong-answer' : ' ')}}">
+          <ion-label>{{ answer }}</ion-label>
+      </ion-card>
     </ion-list>
   </div>
 

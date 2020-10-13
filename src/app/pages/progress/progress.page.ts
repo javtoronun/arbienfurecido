@@ -43,7 +43,10 @@ export class ProgressPage implements OnInit {
       }
     });
 
-    return success + "/" + answered;
+    if (answered != 0)
+      return (success/answered * 100).toFixed(1) + "%";
+    else
+     return "0%";
   }
 
   getSuccessRateColor(section: string) {
@@ -57,7 +60,7 @@ export class ProgressPage implements OnInit {
       }
     })
 
-    let color = "red";
+    let color = "grey";
 
     if (answered > 0) {
       let successRate = success/answered

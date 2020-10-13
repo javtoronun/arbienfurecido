@@ -1,0 +1,31 @@
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.menu-buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  ion-card {
+    width: 10em;
+    height: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .title-image {
+      width: 50%;
+    }
+  }
+}
+
+ion-content {
+
+
+
+}

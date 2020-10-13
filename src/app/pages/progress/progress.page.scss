@@ -1,19 +1,38 @@
 .section {
+  padding: 1em;
+  color: black;
+  margin-bottom: 0;
+  margin-top: 2px;
+  display: flex;
+  justify-content: space-between;
   .section-name {
     max-width: 85%;
   }
 
   .success-rate {
-    max-width: 10%;
+    max-width: 20%;
+    text-overflow: unset;
+    text-align: right;
   }
 
   &.red {
-    --ion-item-background: #FF8A80;
+    --ion-item-background: #ed1d24;
+    color: white;
   }
   &.yellow {
     --ion-item-background: #FFD740;
+    color: black
   }
   &.green {
-    --ion-item-background: #B2FF59;
+    --ion-item-background: #00c853;
+    color: black
   }
+  &.grey {
+    --ion-item-background: #f1f1f1;
+  }
+}
+
+ion-content {
+  --padding-top: 1em;
+  --padding-bottom: 1em;
 }
