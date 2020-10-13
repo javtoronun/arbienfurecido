@@ -21,7 +21,7 @@ export class TestPage implements OnInit {
 
   showError: boolean = false;
   showCorrect: boolean = false;
-
+  showQuestions: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -35,7 +35,10 @@ export class TestPage implements OnInit {
       this.currentQuestion = this.testQuestions.questions[0];
       this.currentIndex = 0;
       testQuestions.questions.forEach(question => {
-        question.answers = shuffle(question.answers);
+        let correctAnswer = question.answers[question.correctAnswer];
+        let shuffledAnswers = shuffle(question.answers);
+        question.correctAnswer = shuffledAnswers.indexOf(correctAnswer);
+        question.answers = shuffledAnswers;
       });
       this.test = new Test(this.testQuestions);
     });

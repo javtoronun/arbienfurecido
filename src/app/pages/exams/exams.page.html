@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="profile"></ion-back-button>
     </ion-buttons>
     <ion-title>Examen</ion-title>
   </ion-toolbar>
@@ -22,14 +22,15 @@
         <ion-item>
           <ion-label position="floating">Reglas de juego</ion-label>
           <ion-select multiple="true" cancelText="Cerrar" okText="Listo"
-            [(ngModel)]="exam.questionsSections" name="questionsSections" required>
+            [(ngModel)]="exam.questionsSections" name="questionsSections" (change)="onSelectChanged()" required>
+            <ion-select-option [value]="null">Todas</ion-select-option>
             <ion-select-option *ngFor="let questionsSection of questionsSections" [value]="questionsSection">{{ questionsSection.section }}</ion-select-option>
           </ion-select>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">Número de preguntas</ion-label>
-          <ion-input [(value)]="exam.numQuestions" required></ion-input>
+          <ion-input [(ngModel)]="exam.numQuestions" name="numQuestions" required></ion-input>
         </ion-item>
 
         <ion-button id="login-btn" type="submit" [disabled]="exam.questionsSections.length == 0" fill="solid" expand="block" color="dark" >Ir a examen</ion-button>

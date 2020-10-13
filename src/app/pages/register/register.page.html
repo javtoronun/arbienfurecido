@@ -1,42 +1,50 @@
 <ion-content>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Registrar usuario</ion-card-title>
-      <ion-card-subtitle>Introduce tus datos</ion-card-subtitle>
-    </ion-card-header>
+  <ion-card class="header">
+    <ion-card-title>Registro de Usuario</ion-card-title>
+  </ion-card>
 
     <ion-card-content class="content-centered column">
       <form [formGroup]="registerForm" (ngSubmit)="signUp()">
 
+          <ion-card class="card-input">
             <ion-item>
               <ion-label position="floating">Nombre de usuario</ion-label>
-              <ion-input autofocus formControlName="username" placeholder="Nombre de usuario"></ion-input>
+              <ion-input autofocus formControlName="username"></ion-input>
             </ion-item>
+          </ion-card>
 
+          <ion-card class="card-input">
             <ion-item>
               <ion-label position="floating">Correo electrónico</ion-label>
-              <ion-input autofocus formControlName="email" inputmode="email" type="email" placeholder="Correo electrónico"></ion-input>
+              <ion-input autofocus formControlName="email" inputmode="email" type="email"></ion-input>
             </ion-item>
+          </ion-card>
 
+          <ion-card class="card-input">
             <ion-item>
               <ion-label position="floating">Contraseña</ion-label>
-              <ion-input type="password" formControlName="password" placeholder="Contraseña"></ion-input>
+              <ion-input type="password" formControlName="password"></ion-input>
             </ion-item>
+          </ion-card>
+
+          <ion-card class="card-input">
             <ion-item>
               <ion-label position="floating">Confirmar contraseña</ion-label>
-              <ion-input type="password" formControlName="cpassword" placeholder="Confirmar contraseña"></ion-input>
+              <ion-input type="password" formControlName="cpassword"></ion-input>
             </ion-item>
+          </ion-card>
 
-        <ion-button id=register-btn type="submit" [disabled]="!registerForm.valid" fill="solid" expand="block" color="dark">Registrarse</ion-button>
+        <ion-button id="register-btn" type="submit" [disabled]="!registerForm.valid" fill="solid" expand="block" color="dark">Registrarse</ion-button>
 
+        <ion-button id="login-link" href="/login" lines="none" fill="solid" expand="block" color="light">
+          Iniciar sesión
+        </ion-button>
       </form>
 
-      <ion-item id="login-link" href="/login" lines="none">
-        Ya estoy registrado. Iniciar sesión
-      </ion-item>
     </ion-card-content>
-  </ion-card>
+
+    <ion-card class="footer"></ion-card>
 
 
 </ion-content>
