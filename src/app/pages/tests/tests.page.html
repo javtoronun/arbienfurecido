@@ -1,19 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="profile"></ion-back-button>
     </ion-buttons>
     <ion-title>Reglas del juego</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-list>
-    <ion-item *ngFor="let questionsSection of questionsSections" class="ion-activatable ripple-parent" (click)="goToTest(questionsSection)">
-      <ion-label>{{ questionsSection.section }}</ion-label>
-      <ion-ripple-effect type="unbounded"></ion-ripple-effect>
-    </ion-item>
-  </ion-list>
-
+  <ion-card *ngFor="let questionsSection of questionsSections" class="ion-activatable ripple-parent question-section" (click)="goToTest(questionsSection)">
+    <ion-label>{{ questionsSection.section }}</ion-label>
+    <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+  </ion-card>
 </ion-content>

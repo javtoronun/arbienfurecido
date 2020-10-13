@@ -9,3 +9,38 @@
 form {
   width: 100%;
 }
+
+.header {
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+  background-color: #3b5998;
+  border-radius: 0 0 50% 50%;
+  height: 4em;
+
+  ion-card-title {
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.card-input {
+  padding: 1em;
+  background: rgba(255,255,255,0.8);
+
+  ion-item {
+    --background: transparent;
+  }
+}
+
+.footer {
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+  background-color: #3b5998;
+  border-radius: 50% 50% 0 0;
+  height: 2em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

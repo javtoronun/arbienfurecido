@@ -46,6 +46,12 @@ export class ExamsPage implements OnInit {
     this.router.navigate(["/test"]);
   }
 
+  onSelectChanged() {
+    console.log("todas")
+    if (this.exam.questionsSections.includes(null))
+      this.exam.questionsSections = this.questionsSections;
+  }
+
 }
 
 function shuffle(arra1): Question[] {
