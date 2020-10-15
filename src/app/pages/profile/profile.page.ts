@@ -24,10 +24,13 @@ export class ProfilePage implements OnInit {
 
       await this.userService.getUser(await this.storage.get("userID"));
 
-      this.userService.user.subscribe(user => {
+      this.userService.user.subscribe(async user => {
         this.user = user;
         console.log(this.user)
-        if (this.user) this.userService.changeTests(this.user.finishedTests);
+        if (this.user) {
+          this.userService.changeTests(this.user.finishedTests);
+          await this.storage.set("isAdmin", user.admin);
+        }
       });
 
     } catch(err) {
