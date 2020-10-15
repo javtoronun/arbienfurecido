@@ -6,6 +6,8 @@ import { Test } from 'src/app/shared/models/test';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
+import { Storage } from "@ionic/storage";
+
 @Component({
   selector: 'app-test',
   templateUrl: './test.page.html',
@@ -23,13 +25,25 @@ export class TestPage implements OnInit {
   showCorrect: boolean = false;
   showQuestions: boolean = false;
 
+  isAdmin: boolean;
+  questionEditable: boolean = false;
+
+  answerA: string;
+  answerB: string;
+  answerC: string;
+  answerD: string;
+
   constructor(
     private userService: UserService,
     private questionsService: QuestionsService,
-    private router: Router
+    private router: Router,
+    private storage: Storage
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+
+    this.isAdmin = await this.storage.get("isAdmin");
+
     this.questionsService.testQuestions$.subscribe(testQuestions => {
       this.testQuestions = testQuestions;
       this.currentQuestion = this.testQuestions.questions[0];
@@ -40,6 +54,10 @@ export class TestPage implements OnInit {
         question.correctAnswer = shuffledAnswers.indexOf(correctAnswer);
         question.answers = shuffledAnswers;
       });
+      this.answerA = this.currentQuestion.answers[0];
+      this.answerB = this.currentQuestion.answers[1];
+      this.answerC = this.currentQuestion.answers[2];
+      this.answerD = this.currentQuestion.answers[3];
       this.test = new Test(this.testQuestions);
     });
   }
@@ -80,6 +98,10 @@ export class TestPage implements OnInit {
     }
     this.currentQuestion = question;
     this.currentIndex = selected;
+    this.answerA = question.answers[0];
+    this.answerB = question.answers[1];
+    this.answerC = question.answers[2];
+    this.answerD = question.answers[3];
   }
 
   onQuestionChanged(changeValue: number) {
@@ -101,6 +123,20 @@ export class TestPage implements OnInit {
     const res = await this.userService.addFinishedTest(this.test);
     console.log(res)
     this.router.navigate(["/profile"])
+  }
+
+  async onCorrectAnswerChange(i) {
+    this.currentQuestion.correctAnswer = i;
+    await this.questionsService.updateQuestion(this.testQuestions);
+  }
+
+  async onAnswerChange(i, newAnswer) {
+    this.currentQuestion.answers[i] = newAnswer;
+    await this.questionsService.updateQuestion(this.testQuestions);
+  }
+
+  async onSaveQuestionChange() {
+    await this.questionsService.updateQuestion(this.testQuestions);
   }
 
 }

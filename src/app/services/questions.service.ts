@@ -19,7 +19,7 @@ export class QuestionsService {
     private afFirestore: AngularFirestore
   ) {
     this.questionsCollection = afFirestore.collection<QuestionsSection>("questions");
-    this.questionsSections = this.questionsCollection.valueChanges();
+    this.questionsSections = this.questionsCollection.valueChanges({ idField: "_id" });
   }
 
   addQuestionToSection(newQuestion: Question, section: number) {
@@ -36,6 +36,12 @@ export class QuestionsService {
 
   changeTestQuestions(questionsUnit: QuestionsSection) {
     this.testQuestionsSource.next(questionsUnit);
+  }
+
+  updateQuestion(questionsSection: QuestionsSection) {
+    return this.questionsCollection.doc(questionsSection._id).update({
+      questions: questionsSection.questions
+    });
   }
 
 }
