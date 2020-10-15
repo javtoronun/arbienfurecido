@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar *ngIf="testQuestions">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="profile"></ion-back-button>
     </ion-buttons>
@@ -9,7 +9,7 @@
         <ion-icon name="grid"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-buttons *ngIf="isAdmin" slot="end">
+    <ion-buttons *ngIf="testQuestions._id != null && isAdmin" slot="end">
       <ion-button (click)="questionEditable = !questionEditable">
         <ion-icon name="pencil"></ion-icon>
       </ion-button>
