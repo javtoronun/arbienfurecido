@@ -4,6 +4,9 @@ import { QuestionsService } from 'src/app/services/questions.service';
 import { Question } from 'src/app/shared/models/question';
 import { QuestionsSection } from 'src/app/shared/models/questions-section';
 
+import exportFromJSON from 'export-from-json'
+
+
 @Component({
   selector: 'app-tests',
   templateUrl: './tests.page.html',
@@ -21,8 +24,13 @@ export class TestsPage implements OnInit {
   ngOnInit() {
     this.questionsService.getQuestions().subscribe(async res => {
       res.docs.forEach(questionDoc => {
-        this.questionsSections.push(<QuestionsSection> questionDoc.data());
+        let questionSection: QuestionsSection = <QuestionsSection> questionDoc.data();
+        questionSection._id = questionDoc.id;
+        this.questionsSections.push(questionSection);
       });
+
+      //exportFromJSON({ data: this.questionsSections, fileName: "questions-arbi", exportType: "json" });
+
 
     })
   }

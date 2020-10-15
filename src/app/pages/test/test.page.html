@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar *ngIf="testQuestions">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="profile"></ion-back-button>
     </ion-buttons>
@@ -7,6 +7,11 @@
     <ion-buttons slot="end">
       <ion-button (click)="showQuestions = !showQuestions">
         <ion-icon name="grid"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons *ngIf="testQuestions._id != null && isAdmin" slot="end">
+      <ion-button (click)="questionEditable = !questionEditable">
+        <ion-icon name="pencil"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -27,15 +32,46 @@
 
   <div class="question-details">
     <ion-card class="question-title">
-        <ion-label>
+        <ion-label *ngIf="!questionEditable">
           {{ currentIndex + 1 }}. {{ currentQuestion.question }}
         </ion-label>
+        <ion-item *ngIf="questionEditable">
+          <ion-input (ionBlur)="onSaveQuestionChange()" [(ngModel)]="currentQuestion.question"></ion-input>
+        </ion-item>
     </ion-card>
 
     <ion-list class="answers">
-      <ion-card *ngFor="let answer of currentQuestion.answers ; let i = index"
-        (click)="onAnswerSelected(i)" class="{{ i == currentQuestion.correctAnswer && showCorrect ? 'correct-answer' : (i == selectedAnswer && showError ? 'wrong-answer' : ' ')}}">
-          <ion-label>{{ answer }}</ion-label>
+      <ion-card (click)="!questionEditable ? onAnswerSelected(0) : null"
+        class="{{ 0 == currentQuestion.correctAnswer && (showCorrect || questionEditable) ? 'correct-answer' : (0 == selectedAnswer && showError ? 'wrong-answer' : ' ')}}">
+          <ion-label *ngIf="!questionEditable">{{ answerA }}</ion-label>
+          <ion-item *ngIf="questionEditable">
+            <ion-button *ngIf="0 != currentQuestion.correctAnswer" (click)="onCorrectAnswerChange(0)">Correcta</ion-button>
+            <ion-textarea (ionBlur)="onAnswerChange(0, answerA)" [autoGrow]="true" [(ngModel)]="answerA"></ion-textarea>
+          </ion-item>
+      </ion-card>
+      <ion-card (click)="!questionEditable ? onAnswerSelected(1) : null"
+        class="{{ 1 == currentQuestion.correctAnswer && (showCorrect || questionEditable) ? 'correct-answer' : (1 == selectedAnswer && showError ? 'wrong-answer' : ' ')}}">
+          <ion-label *ngIf="!questionEditable">{{ answerB }}</ion-label>
+          <ion-item *ngIf="questionEditable">
+            <ion-button *ngIf="1 != currentQuestion.correctAnswer" (click)="onCorrectAnswerChange(1)">Correcta</ion-button>
+            <ion-textarea (ionBlur)="onAnswerChange(1, answerB)" [autoGrow]="true" [(ngModel)]="answerB"></ion-textarea>
+          </ion-item>
+      </ion-card>
+      <ion-card (click)="!questionEditable ? onAnswerSelected(2) : null"
+        class="{{ 2 == currentQuestion.correctAnswer && (showCorrect || questionEditable) ? 'correct-answer' : (2 == selectedAnswer && showError ? 'wrong-answer' : ' ')}}">
+          <ion-label *ngIf="!questionEditable">{{ answerC }}</ion-label>
+          <ion-item *ngIf="questionEditable">
+            <ion-button *ngIf="2 != currentQuestion.correctAnswer" (click)="onCorrectAnswerChange(2)">Correcta</ion-button>
+            <ion-textarea (ionBlur)="onAnswerChange(2, answerC)" [autoGrow]="true" [(ngModel)]="answerC"></ion-textarea>
+          </ion-item>
+      </ion-card>
+      <ion-card (click)="!questionEditable ? onAnswerSelected(3) : null"
+        class="{{ 3 == currentQuestion.correctAnswer && (showCorrect || questionEditable) ? 'correct-answer' : (3 == selectedAnswer && showError ? 'wrong-answer' : ' ')}}">
+          <ion-label *ngIf="!questionEditable">{{ answerD }}</ion-label>
+          <ion-item *ngIf="questionEditable">
+            <ion-button *ngIf="3 != currentQuestion.correctAnswer" (click)="onCorrectAnswerChange(3)">Correcta</ion-button>
+            <ion-textarea (ionBlur)="onAnswerChange(3, answerD)" [autoGrow]="true" [(ngModel)]="answerD"></ion-textarea>
+          </ion-item>
       </ion-card>
     </ion-list>
   </div>

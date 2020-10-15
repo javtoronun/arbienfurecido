@@ -42,7 +42,7 @@ export class ExamsPage implements OnInit {
         this.exam.randQuestions = this.exam.randQuestions.concat(questions);
     })
     this.exam.randQuestions = (shuffle(this.exam.randQuestions)).slice(0, this.exam.numQuestions);
-    this.questionsService.changeTestQuestions({ section: "Examen", questions: this.exam.randQuestions });
+    this.questionsService.changeTestQuestions({ _id: null, section: "Examen", questions: this.exam.randQuestions });
     this.router.navigate(["/test"]);
   }
 
