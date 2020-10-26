@@ -17,6 +17,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -29,10 +32,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
+    PdfViewerModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    DocumentViewer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
