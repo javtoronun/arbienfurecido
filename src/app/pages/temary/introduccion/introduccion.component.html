@@ -61,8 +61,15 @@
     </p>
   </ion-card-content>
 </ion-card>
-<div class="nav-buttons">
-  <ion-button (click)="pagina = pagina-1" expand="full" fill="solid" color="dark" [disabled]="pagina == 0">Atrás</ion-button>
-  <ion-button (click)="pagina = pagina+1" expand="full" fill="solid" color="dark">Siguiente</ion-button>
-</div>
+
+<ion-fab class="temary-nav" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina-1" [disabled]="pagina == 0">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab class="temary-nav" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina+1" [disabled]="pagina == 13">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 </ion-content>
