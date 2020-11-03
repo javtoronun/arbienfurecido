@@ -19,7 +19,7 @@ export class TemaryPage implements OnInit {
 
   ngOnInit() {
     this.menu.enable(true, 'temas');
-    //this.menu.open('temas');
+    this.menu.open('temas');
   }
 
 }

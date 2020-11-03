@@ -1,3 +1,188 @@
-<p>
-  regla6 works!
-</p>
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Regla 6: Los otros miembros del equipo arbitral</ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="pagina == 0">
+    <p>
+      <br />
+      Se podrán designar para un partido otros miembros del equipo arbitral [dos árbitros asistentes, el cuarto árbitro, dos árbitros asistentes adicionales, el árbitro asistente de reserva, el árbitro asistente de vídeo (VAR) y al menos un asistente del VAR (AVAR)]. Estos ayudarán al árbitro principal a dirigir el partido de acuerdo con las Reglas de Juego, si bien la decisión definitiva la tomará siempre el árbitro principal.
+    </p>
+    <p>
+      <br />
+      El árbitro principal, los árbitros asistentes, el cuarto árbitro, los árbitros asistentes adicionales y el árbitro asistente de reserva son los miembros del equipo arbitral en el terreno de juego.
+    </p>
+    <p>
+      <br />
+      El VAR y el AVAR son los miembros del equipo arbitral de vídeo y ayudan al árbitro de conformidad con el Protocolo del VAR fijado por el IFAB.
+    </p>
+    <p>
+      <br />
+      El resto de miembros del equipo arbitral actuarán bajo la dirección del árbitro principal. En caso de interferencia indebida o conducta incorrecta de uno de sus miembros, el árbitro prescindirá de sus servicios e informará a las autoridades competentes.
+    </p>
+    <p>
+      <br />
+      Con excepción del árbitro asistente de reserva,  los  miembros  del equipo arbitral en el terreno de juego ayudarán al árbitro principal a determinar las faltas e infracciones cuando tengan un mejor ángulo de visión que este y  deberán informar a las autoridades competentes sobre cualquier conducta incorrecta grave u otros incidentes que ni el árbitro ni el resto de miembros del equipo arbitral hayan apreciado. Además, deberán dar parte al árbitro y a los demás miembros del equipo arbitral de la elaboración de dicho informe.
+    </p>
+    <p>
+      <br />
+      Los miembros del equipo arbitral en el terreno de juego ayudarán al árbitro a inspeccionar el terreno de juego, los balones y el equipamiento de los jugadores (lo que incluye comprobar si se han resuelto posibles problemas detectados en controles previos) y a mantener registros de tiempo, goles, conducta incorrecta, etc.
+    </p>
+    <p>
+      <br />
+      El reglamento de la competición deberá estipular claramente quién sustituirá a un miembro del equipo arbitral que no pueda comenzar o continuar su labor y todo cambio asociado a ello. En particular, en el caso de que el árbitro no pueda continuar su labor, deberá dejarse claro si asumirá sus funciones el cuarto árbitro, el primer árbitro asistente o el primer árbitro asistente adicional.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 1">
+    <h2>
+      <b>1. Árbitros asistentes</b>
+    </h2>
+    <p>
+      <br />
+      Tendrán la tarea de indicar si:
+    </p>
+    <ul>
+      <li>
+        el balón ha salido completamente del terreno de juego y a qué equipo le corresponde efectuar el saque de esquina, de meta o de banda;
+      </li>
+      <li>
+        un jugador en posición de fuera de juego debe ser sancionado;
+      </li>
+      <li>
+        se solicita una sustitución;
+      </li>
+      <li>
+        en el lanzamiento de un tiro penal, el guardameta se separa de la línea de meta antes de que ejecutar el lanzamiento y si el balón cruza la línea de meta; si se hubieran designado árbitros asistentes adicionales, el árbitro asistente deberá situarse a la altura del punto penal.
+      </li>
+    </ul>
+    <p>
+      <br />
+      La labor del árbitro asistente incluye también supervisar el procedimiento de sustitución.
+    </p>
+    <p>
+      <br />
+      Los árbitros asistentes podrán entrar en el terreno de juego para ayudar a que se respete la distancia de 9.15 m (10 yd).
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 2">
+    <h2>
+      <b>2. Cuarto árbitro</b>
+    </h2>
+    <p>
+      <br />
+      La labor del cuarto árbitro incluye además:
+    </p>
+    <ul>
+      <li>
+        supervisar el procedimiento de sustitución;
+      </li>
+      <li>
+        comprobar el equipamiento de jugadores y suplentes;
+      </li>
+      <li>
+        permitir la vuelta al terreno de juego de un jugador después de la señal o autorización del árbitro;
+      </li>
+      <li>
+        supervisar los balones de reserva;
+      </li>
+      <li>
+        indicar la cantidad mínima de tiempo adicional que el árbitro tiene la intención de añadir al final de cada periodo (lo que incluye el tiempo suplementario);
+      </li>
+      <li>
+        comunicar al árbitro si alguna persona situada en el área técnica se comporta de forma incorrecta.
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 3">
+    <h2>
+      <b>3. Árbitros asistentes adicionales</b>
+    </h2>
+    <p>
+      <br />
+      Los árbitros asistentes adicionales podrán indicar:
+    </p>
+    <ul>
+      <li>
+        si el balón ha atravesado completamente la línea de meta, incluyendo el caso de concederse el gol;
+      </li>
+      <li>
+        a qué equipo corresponde ejecutar el saque de esquina o de meta;
+      </li>
+      <li>
+        si, en la ejecución de un penal, el guardameta se separa de la línea de meta antes de que producirse el lanzamiento y si el balón ha cruzado la línea de meta.
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 4">
+    <h2>
+      <b>4. Árbitro asistente de reserva</b>
+    </h2>
+    <p>
+      <br />
+      La única tarea del árbitro asistente de reserva será reemplazar a un árbitro asistente o cuarto árbitro que no pueda continuar con su labor.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 5">
+    <h2>
+      <b>5. Miembros del equipo arbitral de vídeo</b>
+    </h2>
+    <p>
+      <br />
+      El árbitro asistente de vídeo (VAR) es un miembro del equipo arbitral que   asiste al árbitro a la hora de tomar una decisión utilizando imágenes en el caso de un «error claro, obvio y manifiesto» o de un «incidente grave inadvertido» relativo a un gol/no gol, un penal/no penal, una tarjeta roja directa (no   segunda amonestación) o una confusión de identidad cuando el árbitro amonesta o expulsa al jugador equivocado del equipo infractor.
+    </p>
+    <p>
+      <br />
+      El asistente del árbitro asistente de vídeo (AVAR) es un miembro del equipo arbitral que principalmente ayuda al VAR a la hora de:
+    </p>
+    <ul>
+      <li>
+        ver las imágenes de televisión mientras el VAR está llevando a cabo un chequeo o revisión;
+      </li>
+      <li>
+        registrar los incidentes relacionados con el VAR y los problemas de comunicación o de la tecnología en uso;
+      </li>
+      <li>
+        asistir en la comunicación del VAR y el árbitro, en especial cuando el VAR está chequeando o revisando la jugada, p. ej. para decirle al árbitro que detenga el juego, que retrase la reanudación, etc.;
+      </li>
+      <li>
+        llevar un registro del tiempo «perdido» mientras el juego se ha detenido para chequear o revisar la jugada;
+      </li>
+      <li>
+        informar sobre la decisión del VAR a las partes correspondientes.
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 6">
+    <h2>
+      <b>6. Señales del árbitro asistente</b>
+    </h2>
+
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 7">
+    <h2>
+      <b>7. Señales del árbitro asistente adicional</b>
+    </h2>
+
+  </ion-card-content>
+
+</ion-card>
+
+<ion-fab class="temary-nav" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina-1" [disabled]="pagina == 0">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab class="temary-nav" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina+1" [disabled]="pagina == 7">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>
