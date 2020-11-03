@@ -1,3 +1,178 @@
-<p>
-  regla10 works!
-</p>
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Regla 10: El resultado de un partido</ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="pagina == 0">
+    <h2>
+      <b>1. Gol válido</b>
+    </h2>
+    <p>
+      <br />
+      Se considerará válido un gol cuando el balón haya atravesado completamente la línea de meta entre los postes y por debajo del travesaño, siempre que el equipo que marcó el gol no haya cometido previamente una falta o infracción de las Reglas de Juego.
+    </p>
+    <p>
+      <br />
+      Si el guardameta lanza el balón con la mano y este entra en la portería contraria directamente, se concederá saque de meta.
+    </p>
+    <p>
+      <br />
+      Si el árbitro señalara un gol antes de que el balón hubiera traspasado completamente la línea de meta, el juego se reanudará con un balón a tierra.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 1">
+    <h2>
+      <b>2. Equipo ganador</b>
+    </h2>
+    <p>
+      <br />
+      El equipo que haya marcado el mayor número de goles será el ganador. Si ambos equipos marcan el mismo número de goles o no marcan ninguno, el partido terminará en empate.
+    </p>
+    <p>
+      <br />
+      Si el reglamento de la competición exigiera que se declare un equipo ganador después de un partido empatado o una eliminatoria que finaliza en empate, se permitirán únicamente los siguientes procedimientos para determinar el vencedor:
+    </p>
+    <ul>
+      <li>
+        regla de goles marcados fuera de casa;
+      </li>
+      <li>
+        dos periodos de igual duración de tiempo suplementario que no excedan los 15 minutos cada uno;
+      </li>
+      <li>
+        tanda de penales.
+      </li>
+    </ul>
+    <p>
+      <br />
+      Se podrán combinar varios de los procedimientos anteriores.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 2">
+    <h2>
+      <b>3. Tanda de penales</b>
+    </h2>
+    <p>
+      <br />
+      La tanda de penales desde el punto penal se ejecutará una vez terminado el partido y, a menos que se estipule algo diferente, se aplicarán las Reglas de Juego correspondientes. Los jugadores expulsados a lo largo del partido no podrán participar en la tanda de penales. Por otro lado, las advertencias y amonestaciones registradas durante el encuentro no se tendrán en consideración en la tanda de penales.
+    </p>
+    <br />
+    <h2>
+      <b>Procedimiento</b>
+    </h2>
+    <h3>
+      <b>Antes de comenzar la tanda de penales</b>
+    </h3>
+    <ul>
+      <li>
+        A menos que deban tenerse en cuenta otras consideraciones (p. ej. estado del terreno de juego, seguridad, etc.), el árbitro realizará un sorteo mediante el lanzamiento de una moneda al aire para decidir la portería en la que se desarrollará la tanda; esta decisión únicamente podrá modificarse por  motivos de seguridad, si la portería no estuviera en  condiciones o  esa  zona del terreno de juego estuviera impracticable.
+      </li>
+      <li>
+        El árbitro realizará un nuevo sorteo con una moneda y el equipo que resulte favorecido decidirá si ejecutará el primer o el segundo lanzamiento.
+      </li>
+      <li>
+        Con la única excepción del suplente de un guardameta que no pueda continuar, solamente estarán autorizados a participar en la tanda de penales aquellos jugadores que al final del partido se encuentren en el terreno de juego, o aquellos que se encuentren momentáneamente fuera del mismo por lesión, cambios en el equipamiento, etc.
+      </li>
+      <li>
+        Cada uno de los equipos se encargará de decidir el orden en el que ejecutará los lanzamientos. No se informará del orden al árbitro.
+      </li>
+      <li>
+        Si, al finalizar el partido y antes de la tanda de penales o durante la misma,     un equipo tiene más jugadores que su adversario, deberá reducir su número para equipararlo al del equipo rival, y se informará al árbitro del nombre y el número de los jugadores excluidos. Ninguno de ellos podrá participar en la tanda (salvo en el caso descrito a continuación).
+      </li>
+      <li>
+        Aquel guardameta que no se encuentre en condiciones de continuar antes de o durante la tanda podrá ser reemplazado por un jugador excluido para  igualar el número de jugadores o, si su equipo no ha utilizado el número máximo permitido de sustituciones, por un suplente designado como tal en la lista oficial, pero el guardameta reemplazado ya no podrá participar en la tanda ni podrá ejecutar lanzamiento alguno.
+      </li>
+      <li>
+        Si el guardameta hubiera ejecutado ya un lanzamiento, el suplente no podrá ejecutar otro hasta la siguiente tanda de penales.
+      </li>
+    </ul>
+    <h3>
+      <b>Ejecución de la tanda de penales</b>
+    </h3>
+    <ul>
+      <li>
+        Solamente podrán permanecer en el terreno de juego los jugadores autorizados para participar en la tanda de penales y los miembros del equipo arbitral.
+      </li>
+      <li>
+        Todos los jugadores autorizados para participar en la tanda de penales, excepto el lanzador y los dos guardametas, deberán permanecer en el interior del círculo central.
+      </li>
+      <li>
+        El guardameta del equipo ejecutor del lanzamiento deberá permanecer en el terreno de juego, fuera del área penal, en la intersección de la línea de meta con la línea de demarcación del área penal.
+      </li>
+      <li>
+        Cualquiera de los jugadores autorizados para participar en la tanda de penales podrá intercambiar su puesto con el guardameta.
+      </li>
+      <li>
+        Se considerará que el penal se ha completado cuando el balón deje de moverse, deje de estar en juego o el árbitro detenga el juego por una infracción; el lanzador no podrá jugar el balón por segunda vez.
+      </li>
+      <li>
+        El árbitro llevará el control de los lanzamientos.
+      </li>
+      <li>
+        Si el guardameta cometiera una infracción y,  como resultado de ello, se  tuviera que repetir el lanzamiento, se advertirá al guardameta por la primera infracción y se le amonestará en caso de reincidencia.
+      </li>
+      <li>
+        Si el lanzador es penalizado por una infracción cometida después de que el árbitro haya dado la señal para ejecutar el lanzamiento, se registrará este como fallado y se amonestará al lanzador.
+      </li>
+      <li>
+        Si tanto el guardameta como el lanzador cometieran una infracción al mismo tiempo, se registrará el tiro como fallado y se amonestará al lanzador.
+      </li>
+    </ul>
+    <h3>
+      <b>Cada equipo ejecutará cinco lanzamientos ateniéndose a las condiciones detalladas a continuación</b>
+    </h3>
+    <ul>
+      <li>
+        Los tiros deberán ejecutarse por turnos.
+      </li>
+      <li>
+        Cada uno de los lanzamientos deberá ejecutarlo un jugador diferente; antes de poder lanzar un segundo penal, todos los jugadores seleccionados deberán haber ejecutado ya un lanzamiento.
+      </li>
+      <li>
+        Si, antes de que ambos equipos hayan ejecutado sus cinco tiros, uno hubiera marcado más goles que los que el adversario pudiera anotar con sus cinco lanzamientos, se dará por terminada la tanda.
+      </li>
+      <li>
+        Si, después de ejecutar ambos equipos sus cinco lanzamientos, el marcador siguiera empatado, se proseguirá con los tiros penales hasta que un equipo haya marcado un gol más que el otro tras ejecutar el mismo número de lanzamientos.
+      </li>
+      <li>
+        La regla anterior será aplicable a la secuencia posterior de tiros, si bien los equipos podrán cambiar el orden de los lanzadores.
+      </li>
+      <li>
+        La tanda no deberá retrasarse porque un jugador abandone el terreno de juego. Si dicho jugador no regresara a tiempo para ejecutar el lanzamiento, este se registrará como no marcado.
+      </li>
+    </ul>
+    <h3>
+      <b>Sustituciones y expulsiones durante la tanda de penales</b>
+    </h3>
+    <ul>
+      <li>
+        Se podrá amonestar o expulsar a jugadores, suplentes y jugadores sustituidos.
+      </li>
+      <li>
+        Si se expulsara a un guardameta, este deberá ser sustituido por un jugador autorizado para participar en la tanda.
+      </li>
+      <li>
+        A excepción del guardameta, no se podrá sustituir a ningún jugador que no esté en condiciones de continuar jugando.
+      </li>
+      <li>
+        El árbitro no suspenderá definitivamente el partido aunque un equipo se quedara con menos de siete jugadores.
+      </li>
+    </ul>
+  </ion-card-content>
+
+</ion-card>
+
+<ion-fab class="temary-nav" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina-1" [disabled]="pagina == 0">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab class="temary-nav" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina+1" [disabled]="pagina == 2">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>

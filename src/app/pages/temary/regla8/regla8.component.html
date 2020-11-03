@@ -1,3 +1,151 @@
-<p>
-  regla8 works!
-</p>
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Regla 8: Inicio y reanudación del juego</ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="pagina == 0">
+    <p>
+      <br />
+      El juego se iniciará con un saque inicial —también denominado saque de centro— al comienzo de cada uno de los  dos  periodos de  un  partido, del tiempo suplementario y después de la anotación de un gol. Los tiros libres (directos o indirectos), los tiros penales y los saques de banda, de meta y de esquina constituyen otros tipos de reanudación del juego (v. Reglas 13 a 17). Cuando el árbitro detenga el juego por un motivo no contemplado en las Reglas de Juego, el juego se reanudará con un balón a tierra.
+    </p>
+    <p>
+      <br />
+      Las infracciones cometidas cuando el balón no esté en juego no afectarán a la manera en que este se reanude.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 1">
+    <h2>
+      <b>1. Saque inicial</b>
+    </h2>
+    <br />
+    <h2>
+      <b>Procedimiento</b>
+    </h2>
+    <ul>
+      <li>
+        Se realizará un sorteo del campo mediante el lanzamiento de una moneda al aire y el equipo ganador del sorteo elegirá, o bien la mitad del campo desde la que atacará en el primer tiempo, o bien ejecutar el saque inicial.
+      </li>
+      <li>
+        En función de lo anterior, el equipo adversario realizará el saque inicial o elegirá la mitad del campo desde la que atacará en el primer tiempo.
+      </li>
+      <li>
+        El equipo que elija el campo para el primer tiempo ejecutará el saque de centro para iniciar el segundo tiempo.
+      </li>
+      <li>
+        En el segundo tiempo, los equipos cambiarán de campo y atacarán la portería opuesta.
+      </li>
+      <li>
+        Cuando un equipo marque un gol, el equipo adversario reanudará el juego con un saque inicial.
+      </li>
+    </ul>
+    <p>
+      <br />
+      En el saque inicial:
+    </p>
+    <ul>
+      <li>
+        todos los jugadores, excepto el que ejecute el saque, deberán encontrarse en su propia mitad del terreno de juego;
+      </li>
+      <li>
+        los adversarios del equipo que efectúe el saque deberán encontrarse como mínimo a 9.15 m (10 yd) del balón hasta que entre en juego;
+      </li>
+      <li>
+        el balón se colocará en el punto central y no se podrá golpear con el pie hasta que el árbitro así lo indique;
+      </li>
+      <li>
+        el árbitro dará la señal;
+      </li>
+      <li>
+        el balón estará en juego en el momento en que lo golpee con el pie el jugador que haya efectuado el saque y se mueva con claridad;
+      </li>
+      <li>
+        será posible marcar un gol directo al equipo  adversario desde  el  saque inicial; si el balón entrara directamente en la meta del lanzador, se concederá un saque de esquina al adversario.
+      </li>
+    </ul>
+    <br />
+    <h2>
+      <b>Infracciones y sanciones</b>
+    </h2>
+    <p>
+      En caso de que el jugador que ejecute el saque inicial toque el balón por segunda vez antes de que lo toque otro jugador, se concederá un tiro libre indirecto, o bien un libre directo si cometiese una infracción por mano.
+    </p>
+    <p>
+      <br />
+      Para cualquier otra infracción del procedimiento de saque inicial, se repetirá dicho saque.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 2">
+    <h2>
+      <b>2. Balón a tierra</b>
+    </h2>
+    <br />
+    <h2>
+      <b>Procedimiento</b>
+    </h2>
+    <ul>
+      <li>
+        El árbitro concederá un balón a tierra al guardameta del equipo defensor en su área penal si, al detener el juego:
+        <ul>
+          <li>
+            el balón está en el área penal o
+          </li>
+          <li>
+            el último toque del balón se ha producido dentro del área penal.
+          </li>
+        </ul>
+      </li>
+      <li>
+        En el resto de casos, el árbitro concederá un balón a tierra a favor de un jugador del equipo que haya tocado el balón por última vez en la posición donde se haya producido el último contacto del esférico con un jugador, un agente externo o, como figura en la Regla 9.1, un miembro del equipo arbitral.
+      </li>
+      <li>
+        El resto de jugadores (de ambos equipos) deberán mantener una distancia mínima de 4 m (4.5 yd) con respecto al balón hasta que este esté en juego.
+      </li>
+    </ul>
+    <p>
+      <br />
+      El balón estará en juego en el momento en que toque el suelo.
+    </p>
+    <h2>
+      <b>Infracciones y sanciones</b>
+    </h2>
+    <p>
+      Se repetirá el balón a tierra si este:
+    </p>
+    <ul>
+      <li>
+        toca a un jugador antes de tocar el suelo;
+      </li>
+      <li>
+        sale del terreno de juego después de tocar el suelo sin haber tocado a un jugador.
+      </li>
+    </ul>
+    <p>
+      <br />
+      Si tras un balón a tierra, este entrara en la portería sin tocar como mínimo a dos jugadores, el juego se reanudará con:
+    </p>
+    <ul>
+      <li>
+        un saque de meta si el balón entró en la portería del adversario;
+      </li>
+      <li>
+        un saque de esquina si entró en la portería del jugador que tocó el balón.
+      </li>
+    </ul>
+  </ion-card-content>
+
+</ion-card>
+
+<ion-fab class="temary-nav" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina-1" [disabled]="pagina == 0">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab class="temary-nav" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina+1" [disabled]="pagina == 2">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>

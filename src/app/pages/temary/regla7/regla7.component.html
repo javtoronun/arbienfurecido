@@ -1,3 +1,100 @@
-<p>
-  regla7 works!
-</p>
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Regla 7: La duración del partido</ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="pagina == 0">
+    <h2>
+      <b>1. Periodos de juego</b>
+    </h2>
+    <p>
+      <br />
+      El partido se desarrollará en dos periodos iguales de 45 minutos cada uno, los cuales pueden reducirse únicamente por acuerdo entre el árbitro y los dos equipos antes del comienzo del partido —siempre y cuando esté permitido por el reglamento de la competición—.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 1">
+    <h2>
+      <b>2. Pausa del medio tiempo</b>
+    </h2>
+    <p>
+      <br />
+      Los jugadores tendrán derecho a una pausa en el descanso de medio tiempo no superior a 15 minutos; también se permite una pausa breve para beber (no superior a un minuto) tras el primer periodo del tiempo suplementario. El reglamento de la competición deberá estipular claramente la duración de la pausa del medio tiempo, la cual solamente podrá modificarse con el permiso   del árbitro.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 2">
+    <h2>
+      <b>3. Recuperación del tiempo perdido</b>
+    </h2>
+    <p>
+      <br />
+      El árbitro podrá prolongar cada periodo de juego para recuperar el tiempo perdido debido a:
+    </p>
+    <ul>
+      <li>
+        sustituciones;
+      </li>
+      <li>
+        atención o retirada de jugadores lesionados;
+      </li>
+      <li>
+        pérdida deliberada de tiempo;
+      </li>
+      <li>
+        sanciones disciplinarias;
+      </li>
+      <li>
+        pausas por motivos médicos autorizadas por el reglamento de la competición, es decir, las pausas de rehidratación (no superiores a un minuto) y las pausas de refresco (entre 90 segundos y tres minutos);
+      </li>
+      <li>
+        retrasos originados por los chequeos y revisiones del VAR;
+      </li>
+      <li>
+        cualquier otro motivo, lo que incluye todo retraso significativo al reanudarse  el juego (p. ej. celebraciones de goles).
+      </li>
+    </ul>
+    <p>
+      <br />
+      El cuarto árbitro indicará el tiempo mínimo que deberá añadirse, si bien el árbitro tomará la decisión final al respecto. Además, este podrá aumentar el tiempo añadido pero no reducirlo.
+    </p>
+    <p>
+      <br />
+      El árbitro no podrá compensar un error de cronometraje del primer periodo cambiando la duración del segundo periodo.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 3">
+    <h2>
+      <b>4. Tiro penal</b>
+    </h2>
+    <p>
+      <br />
+      En caso de que se deba ejecutar o repetir un penal al final de un periodo, se prolongará este hasta que el penal se haya completado.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 4">
+    <h2>
+      <b>5. Partido suspendido definitivamente</b>
+    </h2>
+    <p>
+      <br />
+      Se volverán a jugar los partidos suspendidos definitivamente, a menos que el reglamento de la competición o el organizador de la misma estipulen otro procedimiento.
+    </p>
+  </ion-card-content>
+
+</ion-card>
+
+<ion-fab class="temary-nav" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina-1" [disabled]="pagina == 0">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab class="temary-nav" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina+1" [disabled]="pagina == 4">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>

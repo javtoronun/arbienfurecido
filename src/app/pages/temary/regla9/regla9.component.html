@@ -1,3 +1,63 @@
-<p>
-  regla9 works!
-</p>
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Regla 9: Balón en juego</ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="pagina == 0">
+    <h2>
+      <b>1. Balón no en juego</b>
+    </h2>
+    <p>
+      <br />
+      El balón no estará en juego cuando:
+    </p>
+    <ul>
+      <li>
+        haya atravesado completamente la línea de meta o de banda, ya sea por el suelo o por el aire;
+      </li>
+      <li>
+        el juego haya sido detenido por el árbitro;
+      </li>
+      <li>
+        el balón toque a un miembro del equipo arbitral, permanezca en el terreno de juego y, además:
+        <ul>
+          <li>
+            un equipo inicie un ataque prometedor o
+          </li>
+          <li>
+            el balón entre directamente en la portería o
+          </li>
+          <li>
+            el equipo en posesión del balón cambie.
+          </li>
+        </ul>
+        <br />
+        En todos los casos anteriores, el juego se reanudará con un balón a tierra.
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 1">
+    <h2>
+      <b>2. Balón en juego</b>
+    </h2>
+    <p>
+      <br />
+      El balón estará en juego en el resto de situaciones en las que entre en contacto con un miembro del equipo arbitral y cuando rebote en un poste o un   travesaño o en el banderín de esquina y permanezca en el terreno de juego.
+    </p>
+  </ion-card-content>
+
+</ion-card>
+
+<ion-fab class="temary-nav" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina-1" [disabled]="pagina == 0">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab class="temary-nav" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina+1" [disabled]="pagina == 1">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>
