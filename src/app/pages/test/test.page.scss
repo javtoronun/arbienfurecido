@@ -23,13 +23,17 @@
   }
 
   .failed-question {
-    background-color: rgba(255,82,82, 0.75);
+    background-color: rgba(255,82,82, 1);
   }
 }
 
 .question-details {
   padding: 1em;
   margin-bottom: 5em;
+
+  ion-list {
+    background: transparent;
+  }
 
   ion-item {
     --background: transparent;
@@ -51,7 +55,7 @@
       background-color: #00E676;
     }
     .wrong-answer {
-      background-color: rgba(255,82,82, 0.75);
+      background-color: rgba(255,82,82, 1);
     }
     ion-label {
       font-size: 14px;

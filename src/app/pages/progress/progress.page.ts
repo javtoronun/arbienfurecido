@@ -82,24 +82,24 @@ export class ProgressPage implements OnInit {
   async resetProgress() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-        header: 'Reiniciar progreso',
-        message: '¿Estás seguro de querer reiniciar las estadísticas de tú progreso? Todas pasarán a 0%',
-        buttons: [
-          {
-            text: 'No',
-            role: 'cancel',
-            cssClass: 'secondary',
-            handler: (blah) => {
-              console.log('Confirm Cancel: blah');
-            }
-          }, {
-            text: 'Confirmar',
-            handler: async () => {
-              console.log('Confirm Okay');
-              await this.userService.resetTests();
-            }
+      header: 'Reiniciar progreso',
+      message: '¿Estás seguro de querer reiniciar las estadísticas de tú progreso? Todas pasarán a 0%',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
           }
-        ]
+        }, {
+          text: 'Confirmar',
+          handler: async () => {
+            console.log('Confirm Okay');
+            await this.userService.resetTests();
+          }
+        }
+      ] 
     });
 
     await alert.present();

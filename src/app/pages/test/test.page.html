@@ -5,6 +5,9 @@
     </ion-buttons>
     <ion-title *ngIf="testQuestions">{{ testQuestions.section }}</ion-title>
     <ion-buttons slot="end">
+      <ion-button (click)="sendSuggestion()">
+        <ion-icon name="chatbubble-ellipses"></ion-icon>
+      </ion-button>
       <ion-button (click)="showQuestions = !showQuestions">
         <ion-icon name="grid"></ion-icon>
       </ion-button>
