@@ -1,0 +1,75 @@
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Introducción</ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="pagina == 0">
+    <h2>
+      <b>Filosofía y espíritu de las Reglas</b>
+    </h2>
+    <p>
+      <br />
+      El fútbol es el deporte más popular del mundo. Se juega en todos los países a muy distintos niveles. Sin embargo, en todas partes se siguen las mismas Reglas de Juego, ya sea en un partido de la Copa Mundial de la FIFA™ o en un encuentro infantil disputado en un pueblo remoto.
+      El hecho de que se aplique el mismo reglamento en cada confederación, país y población, sin importar su tamaño, infunde a este deporte una solidez que debemos preservar, y al mismo tiempo es una oportunidad que se ha de aprovechar en beneficio del fútbol mundial.
+    </p>
+    <p>
+      <br />
+      El balompié debe tener Reglas que hagan que el juego sea «limpio»: la deportividad es un elemento fundamental de la belleza del deporte rey a la par que una característica vital de su «espíritu». Los mejores partidos son aquellos en los que el árbitro raramente tiene que intervenir, ya que los futbolistas compiten mostrando respeto hacia sus compañeros, rivales, las Reglas y los colegiados.
+      Es preciso proteger y respetar la integridad de las Reglas en todo momento, así como a los árbitros que las aplican. Los actores que ejercen cierta autoridad en el mundo del fútbol, especialmente los entrenadores y  capitanes  de los equipos, tienen una importante responsabilidad en lo que  concierne al  respeto a los árbitros y sus decisiones.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 1">
+    <h2>
+      <b>Evolución de las Reglas</b>
+    </h2>
+    <p>
+      <br />
+      Las primeras Reglas «universales» del fútbol se redactaron en 1863; en 1886, se fundó The International Football Association Board (el IFAB), compuesto   por las cuatro federaciones de fútbol británicas (Federación Inglesa de Fútbol, Federación Escocesa de Fútbol, Federación Galesa de Fútbol y Federación Irlandesa de Fútbol) como la única entidad mundial responsable de elaborar y preservar las Reglas de Juego. La FIFA se unió al IFAB en 1913.
+    </p>
+    <p>
+      <br />
+      Para que se modifique una Regla, el IFAB debe tener la convicción de que el cambio beneficiará al fútbol. Esto significa que, a menudo, el posible cambio se pondrá a prueba. Cada cambio propuesto debe analizarse en función de los siguientes aspectos: justicia y deportividad, integridad, respeto, seguridad, el disfrute de los participantes y la manera en que la tecnología puede beneficiar al fútbol. Las Reglas también deben motivar a todos a participar, independientemente de sus circunstancias personales o capacidad.
+    </p>
+    <p>
+      <br />
+      Aunque se producen accidentes, las Reglas deben lograr que el juego sea lo más seguro posible. Para ello, los jugadores deben mostrar respeto por sus adversarios, y los árbitros deben fomentar un entorno seguro tratando con firmeza a aquellos que desplieguen un juego demasiado agresivo y peligroso.
+    </p>
+    <p>
+      <br />
+      Las Reglas encarnan la intransigencia con el juego poco seguro en sus frases de orden disciplinario, p. ej.: «disputa temeraria» (amonestación = tarjeta  amarilla) y «poner en peligro la integridad física de un adversario» o «con uso de fuerza excesiva» (expulsión = tarjeta roja).
+    </p>
+    <p>
+      <br />
+      El fútbol ha de ser un deporte atractivo para jugadores, miembros del cuerpo técnico, entrenadores, espectadores, aficionados, administradores, etc., y las Reglas deben contribuir a que el público de cualquier edad, raza, religión, cultura, grupo étnico, género, orientación sexual o con discapacidad, etc. desee formar parte de este deporte y disfrute con él.
+    </p>
+    <p>
+      <br />
+      Las Reglas del fútbol son relativamente sencillas en comparación con las de   otros deportes de equipo, pero dado que muchas situaciones son «subjetivas» y que los árbitros son humanos y por lo tanto cometen errores, siempre habrá decisiones que den lugar al debate y la discusión.
+    </p>
+    <p>
+      <br />
+      Hay para quien estos intercambios forman parte del encanto del juego, pero, sean las decisiones correctas o incorrectas, el «espíritu» de este deporte requiere que las decisiones arbitrales sean siempre respetadas.
+    </p>
+    <p>
+      <br />
+      Las Reglas no pueden abarcar todas las situaciones posibles; cuando no existe una disposición específica en las Reglas, el IFAB espera que el árbitro adopte una decisión conforme al «espíritu» del juego, lo que suele implicar hacerse la pregunta: «¿Qué quiere o qué espera el fútbol?».
+    </p>
+    <p>
+      <br />
+      El IFAB seguirá cooperando con la comunidad del fútbol mundial para que los cambios de las Reglas beneficien al fútbol en todas las categorías y en cada rincón del mundo, y con ello se respete, valore y proteja la integridad de este deporte, de las Reglas y de los árbitros.
+    </p>
+  </ion-card-content>
+</ion-card>
+
+<ion-fab class="temary-nav" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina-1" [disabled]="pagina == 0">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab class="temary-nav" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina+1" [disabled]="pagina == 13">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>

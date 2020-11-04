@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer/ngx';
+import { MenuController } from '@ionic/angular';
+
 @Component({
   selector: 'app-temary',
   templateUrl: './temary.page.html',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemaryPage implements OnInit {
 
-  constructor() { }
+  page: number = 1;
+
+  constructor(
+    private document: DocumentViewer,
+    private menu: MenuController
+  ) { }
 
   ngOnInit() {
+    this.menu.enable(true, 'temas');
+    this.menu.open('temas');
   }
 
 }
