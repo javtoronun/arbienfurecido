@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Regla15Component implements OnInit {
 
+  pagina: number = 0;
+
   constructor() { }
 
   ngOnInit() {}

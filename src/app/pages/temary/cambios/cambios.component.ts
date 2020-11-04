@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CambiosComponent implements OnInit {
 
+  pagina: number = 0;
+
   constructor() { }
 
   ngOnInit() {}

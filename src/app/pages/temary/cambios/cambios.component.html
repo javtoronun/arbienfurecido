@@ -1,3 +1,146 @@
-<p>
-  cambios works!
-</p>
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Cambios en las Reglas 2020/21</ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="pagina == 0">
+    <p>
+      <br />
+      A continuación, se presenta un resumen con las principales modificaciones/ aclaraciones.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 1">
+    <h2>
+      <b>Regla 1. El terreno de juego</b>
+    </h2>
+    <ul>
+      <li>
+        Los postes y el travesaño podrán tener perfiles resultado de la combinación de cuatro formas básicas.
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 2">
+    <h2>
+      <b>Regla 10. El resultado de un partido</b>
+    </h2>
+    <ul>
+      <li>
+        Las advertencias y las tarjetas amarillas mostradas durante el partido no se tendrán en consideración en las tandas de penales.
+      </li>
+      <li>
+        Véanse también los cambios en la Regla 14 relativos a las tandas de penales.
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 3">
+    <h2>
+      <b>Regla 11. El fuera de juego</b>
+    </h2>
+    <ul>
+      <li>
+        En el fuera de juego, la infracción por mano voluntaria de un defensor se considerará «acción voluntaria».
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 4">
+    <h2>
+      <b>Regla 12. Faltas y conducta incorrecta</b>
+    </h2>
+    <ul>
+      <li>
+        Infracción por mano:
+        <ul>
+          <li>
+            se ha fijado la línea que separa el hombro y el brazo por debajo de la axila
+          </li>
+          <li>
+            únicamente se señalará la mano «accidental» de un atacante o de un compañero de equipo si el contacto tiene lugar inmediatamente antes de marcar gol o de una ocasión manifiesta de gol.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Podrá amonestarse con tarjeta amarilla o expulsarse con tarjeta roja al guardameta que toque antirreglamentariamente la pelota una segunda vez tras reanudar el juego (saque de meta, después de una falta, etc.), incluso si la tocara con la mano o el brazo.
+      </li>
+      <li>
+        Todas aquellas infracciones (no solo las faltas) en las que «se interfiere en un ataque prometedor o se acaba evitando» se sancionarán con tarjeta amarilla.
+      </li>
+      <li>
+        Se amonestará con tarjeta amarilla al jugador que no respete los 4 m de distancia obligatoria en un balón a tierra.
+      </li>
+      <li>
+        Si el árbitro concediera ventaja o permitiera la ejecución de un tiro libre «rápido» tras la comisión de una infracción que «interfiere en un ataque prometedor o acaba evitándolo», no se mostrará tarjeta amarilla.
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 5">
+    <h2>
+      <b>Regla 14. El penal</b>
+    </h2>
+    <ul>
+      <li>
+        No se sancionará con infracción alguna a los guardametas si, tras la ejecución de un penal, el balón no entrara en la portería o viniera rebotado de esta (sin que lo toque el guardameta), a menos que la infracción afecte claramente al lanzador.
+      </li>
+      <li>
+        Se advertirá al guardameta que cometa una infracción una primera vez, y se le mostrará tarjeta amarilla en caso de reincidencia.
+      </li>
+      <li>
+        Se sancionará al lanzador de un penal si este y el guardameta cometieran una infracción exactamente en el mismo instante.
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 6">
+    <h2>
+      <b>Protocolo del VAR</b>
+    </h2>
+    <ul>
+      <li>
+        Será necesaria una sola «señal de la televisión» para realizar una revisión basada únicamente en el VAR.
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 7">
+    <h2>
+      <b>Glosario</b>
+    </h2>
+    <ul>
+      <li>
+        Se ha incluido la definición de «sujetar».
+      </li>
+      <li>
+        La ubicación de un jugador en el momento de la reanudación viene marcada por la posición de los pies o de la parte del cuerpo en contacto con el suelo (a excepción de las estipulaciones incluidas en la «Regla 11. El fuera de juego»).
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 8">
+    <h2>
+      <b>Aclaración</b>
+    </h2>
+    <ul>
+      <li>
+        Si en un saque de meta o tiro libre, el portero eleva la pelota hacia un compañero,  y este se la devuelve con la cabeza o el pecho para que el guardameta la recoja, se repetirá el saque y no se sancionará la acción, a menos que se repita.
+      </li>
+    </ul>
+  </ion-card-content>
+
+</ion-card>
+
+<ion-fab class="temary-nav" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina-1" [disabled]="pagina == 0">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab class="temary-nav" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina+1" [disabled]="pagina == 8">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>

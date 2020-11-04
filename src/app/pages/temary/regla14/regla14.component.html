@@ -1,3 +1,193 @@
-<p>
-  regla14 works!
-</p>
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Regla 14: El penal</ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="pagina == 0">
+    <p>
+      <br />
+      Se concederá un tiro penal siempre que un jugador cometa una infracción sancionable con libre directo dentro de su área penal o fuera del terreno de juego como parte del juego, según se estipula en las Reglas 12 y 13.
+    </p>
+    <p>
+      <br />
+      Se podrá marcar gol directamente de tiro penal.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 1">
+    <h2>
+      <b>1. Procedimiento</b>
+    </h2>
+    <p>
+      <br />
+      El balón deberá estar inmóvil en el punto penal, y los postes, el travesaño y la red no podrán estar tampoco en movimiento.
+    </p>
+    <p>
+      <br />
+      Deberá indicarse con claridad quién será el ejecutor del lanzamiento.
+    </p>
+    <p>
+      <br />
+      El guardameta deberá permanecer sobre su propia línea de meta, entre los dos postes de la portería, pero sin tocar estos, ni el travesaño o la red, y frente al ejecutor del tiro hasta el golpeo del balón.
+    </p>
+    <p>
+      <br />
+      Todos los jugadores, excepto el ejecutor del penal y el guardameta, deberán estar:
+    </p>
+    <ul>
+      <li>
+        a un mínimo de 9.15 m (10 yd) del punto penal;
+      </li>
+      <li>
+        detrás del punto penal;
+      </li>
+      <li>
+        dentro de los límites del terreno de juego;
+      </li>
+      <li>
+        fuera del área penal.
+      </li>
+    </ul>
+    <p>
+      <br />
+      Una vez que los jugadores hayan ocupado su posición de conformidad con la presente regla, el árbitro dará la señal para que se ejecute el penal.
+    </p>
+    <p>
+      <br />
+      El ejecutor del penal tocará el balón con el pie hacia delante; se permite golpearlo con el tacón siempre que el balón se mueva hacia delante.
+    </p>
+    <p>
+      <br />
+      El guardameta deberá tener al menos parte de un pie en contacto directo o sobre la línea de meta en el momento en que el lanzador chute el balón.
+    </p>
+    <p>
+      <br />
+      El balón estará en juego en el momento en que se golpee y se desplace con claridad.
+    </p>
+    <p>
+      <br />
+      El ejecutor del penal no podrá jugar el balón por segunda vez hasta que lo haya tocado otro jugador.
+    </p>
+    <p>
+      <br />
+      La ejecución del penal se completará cuando el balón deje de moverse, deje de estar en juego o el árbitro detenga el juego por alguna infracción de las reglas.
+    </p>
+    <p>
+      <br />
+      Con el fin de ejecutar y completar un tiro penal, se podrá conceder tiempo adicional al final de cada uno de los periodos de juego reglamentarios o del tiempo suplementario. Cuando se conceda tiempo adicional, el penal se completará cuando, una vez ejecutado el tiro, el balón deje de moverse, deje de estar en juego, sea jugado por un jugador (incluido el lanzador) aparte del guardameta defensor, o el árbitro detenga el juego por una infracción del lanzador o de su equipo. Si un jugador del equipo defensor (incluido el guardameta) cometiera una infracción y se fallara o detuviera el penal, se deberá repetir el lanzamiento.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 2">
+    <h2>
+      <b>2. Infracciones y sanciones</b>
+    </h2>
+    <p>
+      <br />
+      Una vez que el árbitro haya dado la señal para ejecutar un tiro penal, este deberá lanzarse inmediatamente; de no ser así, el árbitro podrá adoptar medidas disciplinarias antes de volver a dar la señal de ejecución del penal.
+    </p>
+    <ul>
+      <li>
+        el ejecutor del penal o un compañero de equipo infringe las Reglas de Juego:
+        <ul>
+          <li>
+            si el balón entrara en la portería, se repetirá el penal;
+          </li>
+          <li>
+            si el balón no entrara en la portería, el árbitro detendrá el juego y lo reanudará con un libre indirecto;
+            <br />
+            como excepción a lo anterior, en los siguientes casos, se detendrá el juego y se reanudará con un libre indirecto, independientemente de que se haya marcado gol o no:
+          </li>
+          <li>
+            el penal se ejecuta hacia atrás;
+          </li>
+          <li>
+            el penal es ejecutado por un jugador no designado para ello; el árbitro amonestará al lanzador del tiro penal;
+          </li>
+          <li>
+            el ejecutor del penal finta al golpear el balón tras haber finalizado la carrera (sí se permite fintar durante la carrera); el árbitro amonestará al ejecutor.
+          </li>
+        </ul>
+      </li>
+      <li>
+        el guardameta comete una infracción:
+        <ul>
+          <li>
+            si el balón entrara en la portería, se concederá gol;
+          </li>
+          <li>
+            si el balón no entrara en la portería o rebotara en el larguero o los postes, únicamente se repetirá el tiro penal si la infracción del guardameta influye claramente en el lanzador;
+          </li>
+          <li>
+            si el guardameta evitara que el balón entrara en la portería, se repetirá el tiro penal;
+          </li>
+        </ul>
+        Si la infracción del guardameta conllevara la repetición del tiro penal, se advertirá al guardameta si se trata de la primera infracción del partido, y se   le amonestará en caso de reincidencia.
+      </li>
+      <li>
+        un compañero de equipo del guardameta comete una infracción:
+        <ul>
+          <li>
+            si el balón entrara en la portería, se concederá gol;
+          </li>
+          <li>
+            si el balón no entrara en la portería, se repetirá el tiro penal
+          </li>
+        </ul>
+      </li>
+      <li>
+        un jugador del equipo defensor y otro del equipo atacante cometen una infracción: se repetirá el penal, a menos que un jugador cometiera una infracción más grave (p. ej. una finta antirreglamentaria).
+      </li>
+      <li>
+        tanto el guardameta como el lanzador cometen una infracción al mismo tiempo: se amonestará al lanzador y se reanudará el juego con un libre indirecto para el equipo defensor.
+      </li>
+    </ul>
+    <p>
+      <br />
+      Tras el lanzamiento del penal:
+    </p>
+    <ul>
+      <li>
+        si el ejecutor del penal volviera a tocar el balón antes de que lo toque otro jugador:
+        <ul>
+          <li>
+            se concederá un libre indirecto (o libre directo en caso de que el ejecutor cometa una infracción por mano);
+          </li>
+        </ul>
+      </li>
+      <li>
+        si un agente externo tocara el balón cuando este se mueve hacia delante:
+        <ul>
+          <li>
+            se repetirá el tiro, a menos que el balón vaya a entrar en la portería y la interferencia no impida que el guardameta o un defensor juegue el balón, en cuyo caso se concederá gol si entra en la portería (incluso si se produjo contacto con el balón), a menos que el equipo atacante haya sido el responsable de la interferencia;
+          </li>
+        </ul>
+      </li>
+      <li>
+        si el balón volviera al terreno de juego tras rebotar en el guardameta, el travesaño o los postes, y un agente externo lo tocara después:
+        <ul>
+          <li>
+            el árbitro detendrá el juego;
+          </li>
+          <li>
+            el juego se reanudará con un balón a tierra en el lugar donde el agente externo hubiera tocado el balón.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </ion-card-content>
+
+</ion-card>
+
+<ion-fab class="temary-nav" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina-1" [disabled]="pagina == 0">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab class="temary-nav" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina+1" [disabled]="pagina == 2">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>
