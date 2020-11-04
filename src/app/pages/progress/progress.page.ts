@@ -5,6 +5,8 @@ import { Test } from 'src/app/shared/models/test';
 import { QuestionsSection } from 'src/app/shared/models/questions-section';
 import { QuestionsService } from 'src/app/services/questions.service';
 
+import { AlertController } from '@ionic/angular';
+
 @Component({
   selector: 'app-progress',
   templateUrl: './progress.page.html',
@@ -17,7 +19,8 @@ export class ProgressPage implements OnInit {
 
   constructor(
     private userService: UserService,
-    private questionsService: QuestionsService
+    private questionsService: QuestionsService,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -74,6 +77,32 @@ export class ProgressPage implements OnInit {
     }
 
     return color;
+  }
+
+  async resetProgress() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+        header: 'Reiniciar progreso',
+        message: '¿Estás seguro de querer reiniciar las estadísticas de tú progreso? Todas pasarán a 0%',
+        buttons: [
+          {
+            text: 'No',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              console.log('Confirm Cancel: blah');
+            }
+          }, {
+            text: 'Confirmar',
+            handler: async () => {
+              console.log('Confirm Okay');
+              await this.userService.resetTests();
+            }
+          }
+        ]
+    });
+
+    await alert.present();
   }
 
 }
