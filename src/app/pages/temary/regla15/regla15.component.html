@@ -1,0 +1,101 @@
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Regla 15: El saque de banda</ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="pagina == 0">
+    <p>
+      <br />
+      Se concederá un saque de banda a los adversarios del último jugador que haya tocado el balón antes de que este atravesase totalmente la línea de banda por   el suelo o por el aire.
+    </p>
+    <p>
+      <br />
+      No está permitido anotar gol directamente de saque de banda, por lo cual:
+    </p>
+    <ul>
+      <li>
+        si el balón entrara en la portería del adversario, se concederá un saque de meta;
+      </li>
+      <li>
+        si el balón entrara en la portería del lanzador, se concederá un saque de esquina.
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 1">
+    <h2>
+      <b>1. Procedimiento</b>
+    </h2>
+    <p>
+      <br />
+      Al ejecutar el saque de banda, el lanzador deberá:
+    </p>
+    <ul>
+      <li>
+        estar de pie frente al terreno de juego;
+      </li>
+      <li>
+        pisar la línea de banda con los dos pies —aunque sea parcialmente— o estar situado por fuera de la misma;
+      </li>
+      <li>
+        lanzar el balón con ambas manos desde atrás y por encima de la cabeza desde el lugar en que el balón haya salido del terreno de juego.
+      </li>
+    </ul>
+    <p>
+      <br />
+      Todos los adversarios deberán permanecer a una distancia mínima de 2 m (2 yd) del lugar de la línea de banda donde se vaya a ejecutar el saque.
+    </p>
+    <p>
+      <br />
+      El balón estará en juego tan pronto como haya entrado en el terreno de juego. Si el balón tocara el suelo antes de entrar en el terreno de juego, se repetirá el saque de banda desde la misma posición. Si no se ejecutase correctamente, sacará de banda el equipo adversario.
+    </p>
+    <p>
+      <br />
+      Si durante la ejecución correcta de un saque de banda el ejecutor lanzara voluntariamente el balón contra un adversario con la intención de jugarlo de nuevo, pero no lo hace de manera imprudente, temeraria, ni empleando una fuerza excesiva, el árbitro permitirá que continúe el juego.
+    </p>
+    <p>
+      <br />
+      El ejecutor del saque no podrá volver a jugar el balón hasta que lo haya tocado otro jugador.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 2">
+    <h2>
+      <b>2. Infracciones y sanciones</b>
+    </h2>
+    <p>
+      <br />
+      Si, una vez que el balón esté en juego, el jugador que ha realizado el saque volviera a tocarlo antes de que lo haga otro jugador, se concederá un libre indirecto. En caso de que el ejecutor del saque cometa una infracción por mano:
+    </p>
+    <ul>
+      <li>
+        se concederá un libre directo o
+      </li>
+      <li>
+        se concederá un tiro penal si la infracción se cometió dentro de su área, a menos que fuera el guardameta del equipo defensor, en cuyo caso se concederá un libre indirecto.
+      </li>
+    </ul>
+    <p>
+      <br />
+      Aquel adversario que distraiga u obstaculice de forma antirreglamentaria al ejecutor del saque de banda (lo que incluye estar situado a menos de 2 m [2 yd] del lugar donde se ejecuta el saque) será amonestado por conducta antideportiva. En caso de que ya se haya ejecutado el saque, se concederá un libre indirecto.
+    </p>
+    <p>
+      <br />
+      Si se cometiera cualquier otra infracción de esta regla, sacará de banda un jugador del equipo adversario.
+    </p>
+  </ion-card-content>
+
+</ion-card>
+
+<ion-fab class="temary-nav" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina-1" [disabled]="pagina == 0">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab class="temary-nav" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina+1" [disabled]="pagina == 2">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>

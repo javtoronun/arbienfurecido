@@ -1,0 +1,79 @@
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Regla 16: El saque de meta</ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="pagina == 0">
+    <p>
+      <br />
+      Se concederá un saque de esquina cuando el balón haya atravesado completamente la línea de meta, por el suelo o por el aire, siempre que el   último en tocar el balón haya sido un jugador del equipo defensor y no se haya marcado gol.
+    </p>
+    <p>
+      <br />
+      Se podrá marcar gol directamente de saque de esquina, pero solo contra el equipo adversario; si el balón entrara directamente en la portería del ejecutor del saque, se concederá saque de esquina al adversario.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 1">
+    <h2>
+      <b>1. Procedimiento</b>
+    </h2>
+    <ul>
+      <li>
+        El balón se colocará en el cuadrante de esquina más cercano al lugar por el que cruzó la línea de meta.
+      </li>
+      <li>
+        El balón deberá estar inmóvil y ejecutará el saque un jugador del equipo atacante.
+      </li>
+      <li>
+        El balón estará en juego una vez haya sido golpeado con el pie y se mueva con claridad; no será necesario que salga del cuadrante de esquina.
+      </li>
+      <li>
+        No se deberá mover el poste del banderín.
+      </li>
+      <li>
+        Los adversarios deberán permanecer a un mínimo de 9.15 m (10 yd) del cuadrante de esquina hasta que el balón esté en juego.
+      </li>
+    </ul>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 2">
+    <h2>
+      <b>2. Infracciones y sanciones</b>
+    </h2>
+    <p>
+      <br />
+      Si, una vez que el balón esté en juego, el jugador que realizó el saque volviera a tocarlo antes de que lo toque otro jugador, se concederá un libre indirecto, o en caso de que cometa una infracción por mano:
+    </p>
+    <ul>
+      <li>
+        se concederá un libre directo;
+      </li>
+      <li>
+        se concederá un tiro penal si la infracción se cometió dentro de su área  penal, a menos que fuera el guardameta, en cuyo caso se concederá un libre indirecto.
+      </li>
+    </ul>
+    <p>
+      <br />
+      Si durante la ejecución correcta de un saque de esquina el ejecutor golpeara el balón voluntariamente contra un adversario con el fin de jugarlo de nuevo,   pero no lo hiciera de manera imprudente o temeraria, ni empleando fuerza excesiva, el árbitro permitirá que el juego continúe.
+    </p>
+    <p>
+      <br />
+      Si se cometiera cualquier otra infracción de esta regla, se repetirá el saque.
+    </p>
+  </ion-card-content>
+
+</ion-card>
+
+<ion-fab class="temary-nav" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina-1" [disabled]="pagina == 0">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab class="temary-nav" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina+1" [disabled]="pagina == 2">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>

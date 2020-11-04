@@ -1,0 +1,112 @@
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Regla 2: El balón</ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="pagina == 0">
+    <h2>
+      <b>1. Características y medidas</b>
+    </h2>
+    <p>
+      <br />
+      Los balones deberán:
+    </p>
+    <ul>
+      <li>
+        ser esféricos;
+      </li>
+      <li>
+        estar fabricados con materiales adecuados;
+      </li>
+      <li>
+        tener una circunferencia comprendida entre 68 y 70 cm (27-28 in);
+      </li>
+      <li>
+        tener un peso comprendido entre 410 y 450 g (14-16 oz) al comienzo del partido;
+      </li>
+      <li>
+        tener una presión equivalente a 0.6–1.1 atmósferas (600–1100 g/cm2) al nivel del mar.
+      </li>
+    </ul>
+    <p>
+      <br />
+      Todos los balones utilizados en partidos de competición oficial organizada bajo los auspicios de la FIFA o de las confederaciones deberán portar uno de los siguientes distintivos:
+    </p>
+    <ul>
+      <li>
+        FIFA Quality PRO
+      </li>
+      <li>
+        FIFA Quality
+      </li>
+      <li>
+        IMS - INTERNATIONAL MATCH STANDARD
+      </li>
+    </ul>
+    <p>
+      <br />
+      En aquellos partidos en los que se utilice el sistema de detección automática de goles (DAG), los balones con tecnología integrada deberán llevar uno de los distintivos de calidad indicados anteriormente.
+    </p>
+    <p>
+      <br />
+      En las competiciones de las federaciones nacionales de fútbol, se podrá exigir el uso de balones que lleven uno de estos distintivos.
+    </p>
+    <p>
+      <br />
+      En los partidos que se jueguen en una competición oficial bajo los auspicios de la FIFA, de las confederaciones o de las federaciones nacionales de fútbol, está prohibida toda clase de publicidad comercial en el balón, con excepción del logotipo o emblema de la competición o del organizador de la competición y la marca registrada autorizada del fabricante. El reglamento de la competición podrá restringir el tamaño y el número de dichas marcas.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 1">
+    <h2>
+      <b>2. Sustitución de un balón defectuoso</b>
+    </h2>
+    <p>
+      <br />
+      Si el balón perdiera sus propiedades y no pudiera seguir utilizándose:
+    </p>
+    <ul>
+      <li>
+        se detendrá el juego;
+      </li>
+      <li>
+        se reanudará el juego con un balón a tierra.
+      </li>
+    </ul>
+    <p>
+      <br />
+      Si el balón quedara defectuoso en un saque de inicio, de meta, de esquina o de banda, o en el lanzamiento de un tiro libre o penal, se volverá a ejecutar el saque o el lanzamiento.
+    </p>
+    <p>
+      <br />
+      Si el balón, mientras se mueve hacia adelante, quedara defectuoso antes de llegar a tocar a un jugador, el travesaño o los postes durante la ejecución de un penal o de la tanda de penales, se volverá a ejecutar dicho lanzamiento.
+    </p>
+    <p>
+      <br />
+      El balón no podrá ser reemplazado durante el transcurso del partido sin la autorización del árbitro.
+    </p>
+  </ion-card-content>
+
+  <ion-card-content *ngIf="pagina == 2">
+    <h2>
+      <b>3. Balones adicionales</b>
+    </h2>
+    <p>
+      <br />
+      Se podrán colocar balones adicionales alrededor del terreno de juego, siempre que cumplan las especificaciones estipuladas en la Regla 2 y su uso lo    supervise el árbitro.
+    </p>
+  </ion-card-content>
+</ion-card>
+
+<ion-fab class="temary-nav" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina-1" [disabled]="pagina == 0">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab class="temary-nav" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="pagina = pagina+1" [disabled]="pagina == 2">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>
