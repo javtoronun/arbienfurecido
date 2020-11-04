@@ -5,6 +5,9 @@
     </ion-buttons>
     <ion-title *ngIf="testQuestions">{{ testQuestions.section }}</ion-title>
     <ion-buttons slot="end">
+      <ion-button (click)="sendSuggestion()">
+        <ion-icon name="chatbubble-ellipses"></ion-icon>
+      </ion-button>
       <ion-button (click)="showQuestions = !showQuestions">
         <ion-icon name="grid"></ion-icon>
       </ion-button>
@@ -19,7 +22,7 @@
 
 <ion-content *ngIf="testQuestions">
 
-  <div *ngIf="showQuestions" class="questions">
+  <div *ngIf="showQuestions && !finishedTest" class="questions">
     <div *ngFor="let question of testQuestions.questions ; let i=index"
       class="question-box"
       [ngClass]="{ 'current-question': question == currentQuestion,
@@ -30,7 +33,7 @@
     </div>
   </div>
 
-  <div class="question-details">
+  <div *ngIf="!finishedTest" class="question-details">
     <ion-card class="question-title">
         <ion-label *ngIf="!questionEditable">
           {{ currentIndex + 1 }}. {{ currentQuestion.question }}
@@ -76,7 +79,7 @@
     </ion-list>
   </div>
 
-  <div class="questions-btns">
+  <div *ngIf="!finishedTest" class="questions-btns">
     <ion-button expand="full" fill="solid" color="dark"
      (click)="onQuestionChanged(-1)"
      [disabled]="currentIndex == 0">Anterior</ion-button>
@@ -87,4 +90,26 @@
       expand="full" fill="solid" color="dark"
       (click)="finishTest()">Finalizar</ion-button>
   </div>
+
+  <ion-card *ngIf="finishedTest" class="finish-status">
+    <ion-card-content>
+      <circle-progress
+        [percent]="test.correctQuestions.length/test.totalQuestions * 100"
+        [radius]="100"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="1"
+        [outerStrokeColor]="
+        test.correctQuestions.length/test.totalQuestions >= 0.9 ? '#00c853' : ( test.correctQuestions.length/test.totalQuestions >= 0.5 ? '#FFD740' : '#ed1d24' )"
+        [innerStrokeColor]="
+        test.correctQuestions.length/test.totalQuestions >= 0.9 ? '#00c853' : ( test.correctQuestions.length/test.totalQuestions >= 0.5 ? '#FFD740' : '#ed1d24' )"
+        [animation]="true"
+        [animationDuration]="300"
+        [subtitle]="'Respuestas correctas ' + test.correctQuestions.length + '/' + test.totalQuestions"
+      ></circle-progress>
+
+    </ion-card-content>
+    <ion-button
+      expand="full" fill="solid" color="dark"
+      (click)="goToProfilePage()">Ir a Inicio</ion-button>
+  </ion-card>
 </ion-content>

@@ -45,4 +45,9 @@ export class UserService {
   changeTests(tests: Test[]) {
     this.testsSource.next(tests);
   }
+
+  async resetTests() {
+    return this.usersCollection.doc(await this.storage.get("userID"))
+      .update({ finishedTests: [] })
+  }
 }

@@ -1,8 +1,11 @@
 <ion-header *ngIf="user">
   <ion-toolbar>
     <ion-title>Bienvenido, {{ user.username }}</ion-title>
-    <ion-buttons *ngIf="user.admin" routerDirection="forward" routerLink="/admin-dashboard" slot="end">
-      <ion-button>
+    <ion-buttons slot="end">
+      <ion-button (click)="sendSuggestion()">
+        <ion-icon name="chatbubble-ellipses"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="user.admin" routerDirection="forward" routerLink="/admin-dashboard">
         <ion-icon name="settings"></ion-icon>
       </ion-button>
     </ion-buttons>
