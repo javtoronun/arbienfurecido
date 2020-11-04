@@ -33,6 +33,8 @@ export class TestPage implements OnInit {
   answerC: string;
   answerD: string;
 
+  finishedTest: boolean = false;
+
   constructor(
     private userService: UserService,
     private questionsService: QuestionsService,
@@ -122,7 +124,11 @@ export class TestPage implements OnInit {
   async finishTest() {
     const res = await this.userService.addFinishedTest(this.test);
     console.log(res)
-    this.router.navigate(["/profile"])
+    this.finishedTest = true;
+  }
+
+  async goToProfilePage() {
+    this.router.navigate(["/profile"])    
   }
 
   async onCorrectAnswerChange(i) {

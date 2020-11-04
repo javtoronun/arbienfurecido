@@ -72,3 +72,10 @@
     width: 50%;
   }
 }
+
+.finish-status {
+  ion-card-content {
+    display: flex;
+    justify-content: center;
+  }
+}
