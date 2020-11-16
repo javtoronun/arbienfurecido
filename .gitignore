@@ -31,3 +31,7 @@ npm-debug.log*
 /www
 /android
 /resources
+*.apk
+*.jks
+*.aab
+*.pepk
