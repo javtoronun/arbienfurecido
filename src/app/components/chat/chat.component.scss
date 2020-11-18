@@ -1,0 +1,27 @@
+.chat {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.messages {
+  height: 90%;
+
+  .message {
+    width: 80%;
+  }
+
+  .message.admin {
+    float: left;
+  }
+
+  .message.user {
+    float: right;
+    background-color: #3880ff;
+    color: white;
+  }
+}
+
+.suggestion-input {
+}
