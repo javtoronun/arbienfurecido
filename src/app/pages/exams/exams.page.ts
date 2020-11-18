@@ -17,6 +17,8 @@ export class ExamsPage implements OnInit {
 
   exam: Exam = new Exam();
 
+  allSelected: boolean = false;
+
   constructor(
     private questionsService: QuestionsService,
     private router: Router
@@ -47,9 +49,13 @@ export class ExamsPage implements OnInit {
   }
 
   onSelectChanged() {
-    console.log("todas")
-    if (this.exam.questionsSections.includes(null))
-      this.exam.questionsSections = this.questionsSections;
+    if (this.exam.questionsSections.includes(null)) {
+      this.allSelected = !this.allSelected;
+      if (this.allSelected)
+        this.exam.questionsSections = [...this.questionsSections];
+      else
+       this.exam.questionsSections = [];
+    }
   }
 
 }
