@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Bienvenido, {{ user.username }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="sendSuggestion()">
+      <ion-button (click)="openSuggestionsChat()">
         <ion-icon name="chatbubble-ellipses"></ion-icon>
       </ion-button>
       <ion-button *ngIf="user.admin" routerDirection="forward" routerLink="/admin-dashboard">

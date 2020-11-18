@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Storage } from '@ionic/storage';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,21 @@ export class SuggestionsService {
     this.suggestionsCollection = afFirestore.collection<any>("suggestions");
   }
 
-  async addSuggestion(newSuggestion) {
-    return this.suggestionsCollection.add({ _user: await this.storage.get("userID"), suggestion: newSuggestion });
+  async getSuggestionChat(userID) {
+    return this.suggestionsCollection.ref.where("_user", "==", userID).get();
+  }
+
+  async addSuggestionChat(newSuggestionChat, userID) {
+    return this.suggestionsCollection.doc(userID).set({...newSuggestionChat});
+  }
+
+  listenChat(chatID) {
+    return this.suggestionsCollection.doc(chatID).valueChanges();
+  }
+
+  async addMessageToChat(chatID, newMessage) {
+    return this.suggestionsCollection.doc(chatID).update({
+      messages: firebase.firestore.FieldValue.arrayUnion(newMessage)
+    });
   }
 }

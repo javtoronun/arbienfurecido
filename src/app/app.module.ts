@@ -19,9 +19,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ChatComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
