@@ -8,6 +8,7 @@ import { SuggestionsService } from 'src/app/services/suggestions.service';
 import { ModalController } from '@ionic/angular';
 import { ChatComponent } from 'src/app/components/chat/chat.component';
 import { SuggestionChat } from 'src/app/shared/models/suggestion-chat';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -26,21 +27,30 @@ export class ProfilePage implements OnInit {
     private alertController: AlertController,
     private toastController: ToastController,
     private suggestionsService: SuggestionsService,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private router: Router
   ) { }
 
   async ngOnInit() {
     try {
       const userID = await this.storage.get("userID");
 
-      const suggestionChatRef = await this.suggestionsService.getSuggestionChat(userID);
+      try {
 
-      this.suggestionChat = new SuggestionChat(suggestionChatRef.docs[0]?.data(), userID);
+        const suggestionChatRef = await this.suggestionsService.getSuggestionChat(userID);
+        console.log(userID)
+        console.log(suggestionChatRef.docs)
+        this.suggestionChat = new SuggestionChat(suggestionChatRef.docs[0]?.data(), userID);
 
-      console.log(this.suggestionChat)
+        console.log(this.suggestionChat)
 
-      if (!suggestionChatRef.docs[0])
-        await this.suggestionsService.addSuggestionChat(this.suggestionChat, userID);
+        if (userID && !suggestionChatRef.docs[0])
+          await this.suggestionsService.addSuggestionChat(this.suggestionChat, userID);
+          
+      } catch(err) {
+        console.log(err)
+      }
+
 
       await this.userService.getUser(userID);
 
@@ -70,6 +80,11 @@ export class ProfilePage implements OnInit {
     });
 
     await modal.present();
+  }
+
+  async onLogOut() {
+    await this.authService.signOut();
+    this.router.navigate(["/login"]);
   }
 
 }

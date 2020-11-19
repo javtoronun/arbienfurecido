@@ -39,7 +39,9 @@ export class AuthService {
   async signOut(){
     // Remove token key
     // User state to null
-    this.storage.remove("userID");
+    await this.storage.remove("userID");
+    await this.storage.remove("isAdmin");
+    await this.storage.remove("username");
     // Redirect to login
   }
 

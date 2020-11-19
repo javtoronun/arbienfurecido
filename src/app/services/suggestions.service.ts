@@ -18,6 +18,7 @@ export class SuggestionsService {
   }
 
   async getSuggestionChat(userID) {
+    console.log(userID)
     return this.suggestionsCollection.ref.where("_user", "==", userID).get();
   }
 
