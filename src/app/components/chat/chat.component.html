@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeChat()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Soporte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="chat">
+    <div class="messages">
+      <ion-card *ngFor="let message of suggestionChat.messages" class="message {{ message.from == 0 ? 'admin' : 'user' }}">
+        <ion-card-content>
+          {{message.text}}
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <ion-item class="suggestion-input">
+      <ion-input [(ngModel)]="suggestionText" placeholder="Escribe aquí tu sugerencia..."></ion-input>
+      <ion-button size="medium" (click)="onSendSuggestion()">Enviar</ion-button>
+    </ion-item>
+  </div>
+</ion-content>

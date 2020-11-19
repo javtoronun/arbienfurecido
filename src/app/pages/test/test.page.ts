@@ -7,8 +7,10 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 import { Storage } from "@ionic/storage";
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, ToastController, ModalController } from '@ionic/angular';
 import { SuggestionsService } from 'src/app/services/suggestions.service';
+import { ChatComponent } from 'src/app/components/chat/chat.component';
+import { SuggestionChat } from 'src/app/shared/models/suggestion-chat';
 
 @Component({
   selector: 'app-test',
@@ -37,6 +39,8 @@ export class TestPage implements OnInit {
 
   finishedTest: boolean = false;
 
+  suggestionChat: SuggestionChat;
+
   constructor(
     private userService: UserService,
     private questionsService: QuestionsService,
@@ -45,11 +49,16 @@ export class TestPage implements OnInit {
     private alertController: AlertController,
     private toastController: ToastController,
     private suggestionsService: SuggestionsService,
+    private modalController: ModalController
   ) { }
 
   async ngOnInit() {
 
     this.isAdmin = await this.storage.get("isAdmin");
+    const userID = await this.storage.get("userID");
+    const suggestionChatRef = await this.suggestionsService.getSuggestionChat(userID);
+
+    this.suggestionChat = new SuggestionChat(suggestionChatRef.docs[0]?.data(), userID);
 
     this.questionsService.testQuestions$.subscribe(testQuestions => {
       this.testQuestions = testQuestions;
@@ -150,44 +159,15 @@ export class TestPage implements OnInit {
     await this.questionsService.updateQuestion(this.testQuestions);
   }
 
-  async sendSuggestion() {
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Enviar sugerencia',
-      message: '¿Hay alguna pregunta incorrecta? ¿Tienes alguna sugerencia para la aplicación? ¡Agradecemos la colaboración!',
-      inputs: [
-        {
-          name: 'suggestion',
-          type: 'text',
-          placeholder: 'Escribe aquí la sugerencia'
-        },
-      ],
-      buttons: [
-        {
-          text: 'No',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-          }
-        }, {
-          text: 'Enviar',
-          handler: async (data) => {
-            console.log('Confirm Okay');
-            if (data.suggestion) {
-              await this.suggestionsService.addSuggestion(data.suggestion);
-              const toast = await this.toastController.create({
-                message: '¡Gracias por tu sugerencia! La revisaremos en breve compañero',
-                duration: 2000
-              });
-              toast.present();
-            }
-          }
-        }
-      ]
+  async openSuggestionsChat() {
+    const modal = await this.modalController.create({
+      component: ChatComponent,
+      componentProps: {
+        "suggestionChat": this.suggestionChat
+      }
     });
 
-    await alert.present();
+    await modal.present();
   }
 
 }
