@@ -12,11 +12,84 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="questionsSections.length > 0">
   <ion-card *ngFor="let questionsSection of questionsSections"
     class="section {{ tests ? getSuccessRateColor(questionsSection.section) : 'grey' }}">
     <ion-label class="section-name">{{ questionsSection.section }}</ion-label>
     <ion-label class="success-rate" *ngIf="tests">{{ getSectionSuccess(questionsSection.section) }}</ion-label>
     <ion-label class="success-rate" *ngIf="!tests">0%</ion-label>
+  </ion-card>
+</ion-content>
+
+<ion-content *ngIf="questionsSections.length == 0">
+
+  <ion-card>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+  <ion-card>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+  <ion-card>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+
+  <ion-card>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+  <ion-card>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+
+  <ion-card>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+
+  <ion-card>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+
+  <ion-card>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+  <ion-card>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+  <ion-card>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+  <ion-card>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
   </ion-card>
 </ion-content>

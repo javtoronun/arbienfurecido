@@ -8,6 +8,9 @@
       <ion-button *ngIf="user.admin" routerDirection="forward" routerLink="/admin-dashboard">
         <ion-icon name="settings"></ion-icon>
       </ion-button>
+      <ion-button (click)="onLogOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
