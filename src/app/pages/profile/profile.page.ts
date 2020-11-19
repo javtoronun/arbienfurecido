@@ -3,7 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/shared/models/user';
 import { Storage } from "@ionic/storage";
 import { AuthService } from 'src/app/services/auth.service';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, ToastController, LoadingController } from '@ionic/angular';
 import { SuggestionsService } from 'src/app/services/suggestions.service';
 import { ModalController } from '@ionic/angular';
 import { ChatComponent } from 'src/app/components/chat/chat.component';
@@ -28,29 +28,29 @@ export class ProfilePage implements OnInit {
     private toastController: ToastController,
     private suggestionsService: SuggestionsService,
     private modalController: ModalController,
-    private router: Router
+    private router: Router,
+    private loadingController: LoadingController
   ) { }
 
   async ngOnInit() {
     try {
+      
+      let loading = await this.loadingController.create({
+        message: "¡Bienvenido compañero!"
+      });
+      await loading.present();
+
       const userID = await this.storage.get("userID");
 
-      try {
+      const suggestionChatRef = await this.suggestionsService.getSuggestionChat(userID);
+      console.log(userID)
+      console.log(suggestionChatRef.docs)
+      this.suggestionChat = new SuggestionChat(suggestionChatRef.docs[0]?.data(), userID);
 
-        const suggestionChatRef = await this.suggestionsService.getSuggestionChat(userID);
-        console.log(userID)
-        console.log(suggestionChatRef.docs)
-        this.suggestionChat = new SuggestionChat(suggestionChatRef.docs[0]?.data(), userID);
+      console.log(this.suggestionChat)
 
-        console.log(this.suggestionChat)
-
-        if (userID && !suggestionChatRef.docs[0])
-          await this.suggestionsService.addSuggestionChat(this.suggestionChat, userID);
-          
-      } catch(err) {
-        console.log(err)
-      }
-
+      if (userID && !suggestionChatRef.docs[0])
+        await this.suggestionsService.addSuggestionChat(this.suggestionChat, userID);
 
       await this.userService.getUser(userID);
 
@@ -62,7 +62,10 @@ export class ProfilePage implements OnInit {
           this.userService.changeTests(this.user.finishedTests);
           await this.storage.set("isAdmin", user.admin);
         }
+
+        loading.dismiss();
       });
+
 
     } catch(err) {
       console.log(err)

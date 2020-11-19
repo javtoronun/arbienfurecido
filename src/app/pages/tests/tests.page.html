@@ -7,9 +7,81 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="questionsSections.length > 0">
   <ion-card *ngFor="let questionsSection of questionsSections" class="ion-activatable ripple-parent question-section" (click)="goToTest(questionsSection)">
     <ion-label>{{ questionsSection.section }}</ion-label>
     <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+  </ion-card>
+</ion-content>
+
+<ion-content *ngIf="questionsSections.length == 0">
+  <ion-card class="ion-activatable ripple-parent question-section">
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+  <ion-card class="ion-activatable ripple-parent question-section">
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+  <ion-card class="ion-activatable ripple-parent question-section">
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+
+  <ion-card class="ion-activatable ripple-parent question-section">
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+  <ion-card class="ion-activatable ripple-parent question-section">
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+
+  <ion-card class="ion-activatable ripple-parent question-section">
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+
+  <ion-card class="ion-activatable ripple-parent question-section">
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+
+  <ion-card class="ion-activatable ripple-parent question-section">
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+  <ion-card class="ion-activatable ripple-parent question-section">
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+  <ion-card class="ion-activatable ripple-parent question-section">
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
+  </ion-card>
+
+  <ion-card class="ion-activatable ripple-parent question-section">
+      <ion-label>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-label>
   </ion-card>
 </ion-content>
